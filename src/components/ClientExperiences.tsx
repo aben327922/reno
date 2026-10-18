@@ -1,71 +1,7 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
-import { ArrowUpRight, ArrowRight, ShieldCheck, CheckCircle2, Star } from 'lucide-react';
-
-interface ClientExperience {
-  id: string;
-  quote: string;
-  client: string;
-  attribution: string;
-  projectTitle: string;
-  category: string;
-  location: string;
-  year: string;
-  scope: string;
-  rating: number;
-  projectHref?: string;
-  googleVerified: boolean;
-}
-
-const EXPERIENCES: ClientExperience[] = [
-  {
-    id: 'exp-01',
-    quote:
-      'Managing a whole-home renovation from London felt daunting until Renov8 stepped in. Bi-weekly drone telemetry, itemized weekly BOQ tracking, and absolute honesty on material lead times. The handover was delivered exactly on the agreed milestone.',
-    client: 'T. Rahman',
-    attribution: 'Overseas Homeowner · London, UK',
-    projectTitle: 'Villa Courtyard Transformation',
-    category: 'Full Villa Remodel',
-    location: 'Sector F-7/2, Islamabad',
-    year: '2024',
-    scope: '1 Kanal · Structural Addition · Millwork & VRF',
-    rating: 5,
-    projectHref: '/work/courtyard-house',
-    googleVerified: true,
-  },
-  {
-    id: 'exp-02',
-    quote:
-      'The custom architectural cabinetry and Spanish porcelain tile tolerances are unmatched in the twin cities. Having one single accountable team coordinate civil masonry, electrical plumbing, and European oak surfaces avoided all subcontract friction.',
-    client: 'Col. (R) M. Tariq',
-    attribution: 'Resident Homeowner · Islamabad',
-    projectTitle: 'Minimalist Monograph Residence',
-    category: 'Interior Architecture & Fit-Out',
-    location: 'DHA Phase 2, Islamabad',
-    year: '2025',
-    scope: '2 Kanal · Kitchen & Bathrooms · Sourced Boara Finishes',
-    rating: 5,
-    projectHref: '/work/quiet-house',
-    googleVerified: true,
-  },
-  {
-    id: 'exp-03',
-    quote:
-      'Renov8 executed our corporate duplex headquarters in Blue Area within strict commercial CDA guidelines. The acoustic partition attenuation and concealed Daikin VRV air circulation have made the workspace a joy to operate in every day.',
-    client: 'Apex Venture Capital',
-    attribution: 'Corporate Executive Suite',
-    projectTitle: 'Atelier Commercial Headquarters',
-    category: 'Office & Commercial Fit-Out',
-    location: 'Blue Area, Islamabad',
-    year: '2025',
-    scope: '4,800 sq.ft · Acoustic Drywall · 3-Phase Infrastructure',
-    rating: 5,
-    projectHref: '/work/studio-nine',
-    googleVerified: true,
-  },
-];
+import { ArrowUpRight, ArrowRight, CheckCircle2, Star } from 'lucide-react';
 
 export default function ClientExperiences() {
   return (
@@ -232,67 +168,6 @@ export default function ClientExperiences() {
           </div>
         </div>
 
-        {/* 3 Verified Client Experience Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {EXPERIENCES.map((exp) => (
-            <article
-              key={exp.id}
-              className="bg-white border border-black/10 p-8 flex flex-col justify-between hover:border-[#A8201A] transition-colors group"
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-black/10 pb-3">
-                  <div className="flex items-center gap-1 text-[#FBBC05]">
-                    {[...Array(exp.rating)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                    ))}
-                  </div>
-                  <span className="text-[9px] uppercase font-mono tracking-widest px-2 py-0.5 bg-[#EAE8E3] text-black/70 flex items-center gap-1">
-                    <CheckCircle2 className="w-2.5 h-2.5 text-[#34A853]" />
-                    <span>Verified</span>
-                  </span>
-                </div>
-
-                <blockquote className="text-sm text-black/80 font-light leading-relaxed italic">
-                  &ldquo;{exp.quote}&rdquo;
-                </blockquote>
-
-                <div className="pt-2">
-                  <p className="text-xs font-bold uppercase tracking-wider text-black">
-                    {exp.client}
-                  </p>
-                  <p className="text-[11px] font-mono text-[#A8201A]">{exp.attribution}</p>
-                </div>
-              </div>
-
-              <div className="pt-6 mt-6 border-t border-black/10 space-y-2 text-xs">
-                <div className="flex items-center justify-between">
-                  <span className="text-black/50 font-mono text-[10px] uppercase">Project</span>
-                  <span className="font-medium text-black/85 text-right">{exp.projectTitle}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-black/50 font-mono text-[10px] uppercase">Location</span>
-                  <span className="text-black/70">{exp.location}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-black/50 font-mono text-[10px] uppercase">Delivered</span>
-                  <span className="text-black/70">{exp.year}</span>
-                </div>
-
-                {exp.projectHref && (
-                  <div className="pt-3">
-                    <Link
-                      href={exp.projectHref}
-                      className="inline-flex items-center gap-1 text-xs uppercase tracking-[0.18em] font-semibold text-[#141414] group-hover:text-[#A8201A] transition-colors"
-                    >
-                      <span>Inspect Case Study</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                )}
-              </div>
-            </article>
-          ))}
-        </div>
 
         {/* 3 Foundation Principles from original Renov8 */}
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-black/15 border-y border-black/15 py-6">
