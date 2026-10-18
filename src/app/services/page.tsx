@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ChevronDown,
@@ -15,8 +15,11 @@ import {
   Layers,
   Wrench,
   CheckCircle2,
+  Maximize2,
+  X,
 } from 'lucide-react';
 import { RENO_SERVICES, ServiceCategory } from '@/data/renoData';
+import { SERVICE_VIDEOS, ServiceVideoItem } from '@/data/serviceVideos';
 
 const SERVICE_STANDARDS: Record<string, string[]> = {
   'construction-civil-works': [
@@ -105,11 +108,144 @@ const SERVICE_STANDARDS: Record<string, string[]> = {
   ]
 };
 
+function ServiceVideoCard({
+  index,
+  video,
+  onExpand,
+}: {
+  index: number;
+  video: ServiceVideoItem;
+  onExpand: (video: ServiceVideoItem) => void;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [isMuted, setIsMuted] = useState<boolean>(true);
+
+  const togglePlay = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(() => {});
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    videoRef.current.muted = !videoRef.current.muted;
+    setIsMuted(videoRef.current.muted);
+  };
+
+  return (
+    <div className="flex flex-col bg-white border border-black/15 overflow-hidden group/card hover:border-[#A8201A]/60 transition-all duration-300 shadow-sm">
+      {/* Video Viewport */}
+      <div
+        className="relative aspect-[16/10] bg-black overflow-hidden cursor-pointer"
+        onClick={togglePlay}
+      >
+        <video
+          ref={videoRef}
+          src={video.videoUrl}
+          autoPlay
+          loop
+          playsInline
+          muted={isMuted}
+          preload="metadata"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-[1.02]"
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+        />
+
+        {/* Telemetry Badge Top-Left */}
+        <div className="absolute top-2.5 left-2.5 bg-[#141414]/90 backdrop-blur-md px-2 py-0.5 text-[8.5px] font-mono uppercase text-white/90 tracking-widest border border-white/10 pointer-events-none z-10">
+          {video.badge}
+        </div>
+
+        {/* Expand / Lightbox Button Top-Right */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onExpand(video);
+          }}
+          className="absolute top-2.5 right-2.5 w-7 h-7 flex items-center justify-center bg-[#141414]/80 text-white backdrop-blur-md hover:bg-[#A8201A] transition-colors cursor-pointer border border-white/10 z-10"
+          aria-label="Expand video"
+          title="Full screen preview"
+        >
+          <Maximize2 className="w-3.5 h-3.5" />
+        </button>
+
+        {/* Center Play/Pause Overlay Indicator */}
+        <div
+          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-200 pointer-events-none z-10 ${
+            isPlaying ? 'opacity-0 group-hover/card:opacity-75' : 'opacity-100 bg-black/35'
+          }`}
+        >
+          <div className="w-10 h-10 rounded-full bg-[#141414]/85 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-lg">
+            {isPlaying ? (
+              <Pause className="w-4 h-4" />
+            ) : (
+              <Play className="w-4 h-4 fill-white ml-0.5" />
+            )}
+          </div>
+        </div>
+
+        {/* Sound Toggle Button Bottom-Right */}
+        <button
+          onClick={toggleMute}
+          className="absolute bottom-2.5 right-2.5 w-7 h-7 flex items-center justify-center bg-[#141414]/80 text-white backdrop-blur-md hover:bg-[#A8201A] transition-colors cursor-pointer border border-white/10 z-10"
+          aria-label={isMuted ? 'Unmute audio' : 'Mute audio'}
+          title={isMuted ? 'Unmute' : 'Mute'}
+        >
+          {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
+        </button>
+      </div>
+
+      {/* Card Metadata Below Video */}
+      <div className="p-3.5 md:p-4 bg-[#F6F5F2]/60 border-t border-black/10 flex items-start gap-3 flex-1">
+        <span className="font-mono text-xs font-bold text-[#A8201A] tracking-wider shrink-0 pt-0.5">
+          {String(index).padStart(2, '0')}
+        </span>
+        <div className="min-w-0">
+          <strong className="block text-[13px] font-bold text-[#141414] tracking-tight leading-snug">
+            {video.title}
+          </strong>
+          <small className="block text-[11px] text-black/65 font-light leading-relaxed mt-1">
+            {video.description}
+          </small>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ServicesPage() {
   const [selectedPillar, setSelectedPillar] = useState<string>('All');
   const [openServiceId, setOpenServiceId] = useState<string>('construction-civil-works');
   const [mediaMode, setMediaMode] = useState<Record<string, 'video' | 'render'>>({});
   const [mutedStates, setMutedStates] = useState<Record<string, boolean>>({});
+  const [lightboxVideo, setLightboxVideo] = useState<ServiceVideoItem | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxVideo(null);
+    };
+    if (lightboxVideo) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [lightboxVideo]);
 
   const pillars = [
     'All',
@@ -295,67 +431,64 @@ export default function ServicesPage() {
                         <div className="space-y-8 border-t border-black/10 pt-6">
                           {/* Media Header & Viewport (Video Reel or Render) */}
                           <div className="space-y-3">
-                            <div className="flex items-center justify-between">
-                              <span className="text-[10px] font-mono uppercase tracking-[0.2em] bg-[#F6F5F2] px-2.5 py-1 text-black/70">
-                                {service.index} / {service.pillar}
-                              </span>
+                            <div className="flex flex-wrap items-center justify-between gap-3">
+                              <div className="flex items-center gap-2">
+                                <span className="text-[10px] font-mono uppercase tracking-[0.2em] bg-[#F6F5F2] px-2.5 py-1 text-black/70">
+                                  {service.index} / {service.pillar}
+                                </span>
+                                <span className="text-[10px] font-mono uppercase tracking-wider text-[#A8201A] font-semibold hidden sm:inline-block">
+                                  · 3 Video Trade Cards
+                                </span>
+                              </div>
 
-                              {service.videoUrl && (
-                                <div className="flex items-center gap-2">
-                                  <button
-                                    onClick={() => toggleMediaMode(service.id, 'video')}
-                                    className={`px-2.5 py-1 text-[10px] uppercase font-mono tracking-wider transition-colors cursor-pointer ${
-                                      currentMode === 'video'
-                                        ? 'bg-[#141414] text-white'
-                                        : 'bg-[#F6F5F2] text-black/60 hover:text-black'
-                                    }`}
-                                  >
-                                    Craft Reel (4K)
-                                  </button>
-                                  <button
-                                    onClick={() => toggleMediaMode(service.id, 'render')}
-                                    className={`px-2.5 py-1 text-[10px] uppercase font-mono tracking-wider transition-colors cursor-pointer ${
-                                      currentMode === 'render'
-                                        ? 'bg-[#141414] text-white'
-                                        : 'bg-[#F6F5F2] text-black/60 hover:text-black'
-                                    }`}
-                                  >
-                                    Architectural Spec
-                                  </button>
-                                </div>
-                              )}
+                              <div className="flex items-center gap-2">
+                                <button
+                                  onClick={() => toggleMediaMode(service.id, 'video')}
+                                  className={`px-3 py-1 text-[10px] uppercase font-mono tracking-wider transition-colors cursor-pointer ${
+                                    currentMode === 'video'
+                                      ? 'bg-[#141414] text-white'
+                                      : 'bg-[#F6F5F2] text-black/60 hover:text-black'
+                                  }`}
+                                >
+                                  Trade Videos (3)
+                                </button>
+                                <button
+                                  onClick={() => toggleMediaMode(service.id, 'render')}
+                                  className={`px-3 py-1 text-[10px] uppercase font-mono tracking-wider transition-colors cursor-pointer ${
+                                    currentMode === 'render'
+                                      ? 'bg-[#141414] text-white'
+                                      : 'bg-[#F6F5F2] text-black/60 hover:text-black'
+                                  }`}
+                                >
+                                  Architectural Spec
+                                </button>
+                              </div>
                             </div>
 
-                            <div className="relative aspect-[16/9] md:aspect-[16/8] overflow-hidden bg-black group">
-                              {currentMode === 'video' && service.videoUrl ? (
-                                <>
-                                  <video
-                                    src={service.videoUrl}
-                                    autoPlay
-                                    loop
-                                    playsInline
-                                    muted={isMuted}
-                                    className="w-full h-full object-cover"
+                            {/* 3 Video Cards Exactly Where 1 Video Used to Be */}
+                            {currentMode === 'video' ? (
+                              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
+                                {(SERVICE_VIDEOS[service.id] || []).map((vid, vIdx) => (
+                                  <ServiceVideoCard
+                                    key={vid.id || vid.videoUrl}
+                                    index={vIdx + 1}
+                                    video={vid}
+                                    onExpand={(item) => setLightboxVideo(item)}
                                   />
-                                  <div className="absolute top-3 left-3 bg-[#141414]/90 backdrop-blur-md px-2.5 py-1 text-[9px] font-mono uppercase text-white tracking-widest border border-white/15">
-                                    ON-SITE CRAFT · ISLAMABAD
-                                  </div>
-                                  <button
-                                    onClick={() => toggleMute(service.id)}
-                                    className="absolute bottom-3 right-3 p-2 bg-[#141414]/80 text-white backdrop-blur-md hover:bg-[#A8201A] transition-colors cursor-pointer"
-                                    aria-label="Toggle Mute"
-                                  >
-                                    {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
-                                  </button>
-                                </>
-                              ) : (
+                                ))}
+                              </div>
+                            ) : (
+                              <div className="relative aspect-[16/9] md:aspect-[16/8] overflow-hidden bg-black group border border-black/10">
                                 <img
                                   src={service.image}
                                   alt={service.title}
                                   className="w-full h-full object-cover"
                                 />
-                              )}
-                            </div>
+                                <div className="absolute top-3 left-3 bg-[#141414]/90 backdrop-blur-md px-2.5 py-1 text-[9px] font-mono uppercase text-white tracking-widest border border-white/15">
+                                  ARCHITECTURAL SPECIFICATION · {service.title}
+                                </div>
+                              </div>
+                            )}
                           </div>
 
                           {/* Description & Deliverables */}
@@ -462,6 +595,69 @@ export default function ServicesPage() {
           </div>
         </section>
       </div>
+
+      {/* Full-Screen Video Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
+            onClick={() => setLightboxVideo(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="relative w-full max-w-4xl bg-[#141414] border border-white/15 overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Lightbox Header */}
+              <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/10 bg-[#1c1c1c]">
+                <div className="flex items-center gap-3">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#A8201A] font-semibold">
+                    {lightboxVideo.badge}
+                  </span>
+                  <span className="text-white/30 text-xs">|</span>
+                  <h4 className="text-xs md:text-sm font-bold uppercase tracking-wider text-white">
+                    {lightboxVideo.title}
+                  </h4>
+                </div>
+                <button
+                  onClick={() => setLightboxVideo(null)}
+                  className="p-1.5 text-white/60 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  aria-label="Close modal"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Lightbox Video Viewport */}
+              <div className="relative aspect-video bg-black">
+                <video
+                  src={lightboxVideo.videoUrl}
+                  autoPlay
+                  controls
+                  playsInline
+                  className="w-full h-full object-contain"
+                />
+              </div>
+
+              {/* Lightbox Footer Details */}
+              <div className="p-4 md:p-5 border-t border-white/10 bg-[#141414] flex flex-col md:flex-row md:items-center justify-between gap-3">
+                <p className="text-xs text-white/75 font-light leading-relaxed max-w-2xl">
+                  {lightboxVideo.description}
+                </p>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-white/40 shrink-0">
+                  Renov8 Atelier Archive
+                </span>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
