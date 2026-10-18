@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search,
   X,
@@ -161,22 +162,30 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     }
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-[100] flex items-start justify-center pt-8 sm:pt-20 px-3 sm:px-6">
-      {/* Backdrop Blur */}
-      <div
-        onClick={onClose}
-        className="fixed inset-0 bg-black/85 backdrop-blur-md cursor-pointer"
-      />
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-[100] flex items-start justify-center pt-8 sm:pt-20 px-3 sm:px-6">
+          {/* Backdrop Blur */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-black/85 backdrop-blur-md cursor-pointer"
+          />
 
-      {/* Modal Container */}
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-full max-w-3xl bg-[#141414] border border-white/20 shadow-2xl text-white flex flex-col max-h-[88vh] overflow-hidden"
-        onKeyDown={handleKeyDown}
-      >
+          {/* Modal Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.96, y: -20 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative z-10 w-full max-w-3xl bg-[#141414] border border-white/20 shadow-2xl text-white flex flex-col max-h-[88vh] overflow-hidden"
+            onKeyDown={handleKeyDown}
+          >
         {/* Top Search Input Bar */}
         <div className="p-3.5 sm:p-5 border-b border-white/10 flex items-center gap-2.5 sm:gap-3 bg-[#191919]">
           <Search className="w-5 h-5 text-[#A8201A] shrink-0 pointer-events-none" />
@@ -425,8 +434,10 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
               <div className="text-[10px] text-white/40">
                 {filteredResults.length} {filteredResults.length === 1 ? 'Record' : 'Records'} Indexed
               </div>
-          </div>
+            </div>
+          </motion.div>
         </div>
-      </div>
-    );
-  }
+      )}
+    </AnimatePresence>
+  );
+}

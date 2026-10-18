@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, X, PhoneCall, Search } from 'lucide-react';
 import SearchModal from '@/components/SearchModal';
 
@@ -67,7 +67,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-[70] transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           scrolled
             ? 'bg-[#141414]/95 backdrop-blur-md py-3.5 sm:py-4 border-b border-white/10 shadow-2xl'
             : 'bg-[#141414] py-4 sm:py-5'
@@ -164,56 +164,65 @@ export default function Navbar() {
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
       {/* Fullscreen Architectural Curtain Drawer */}
-      <div
-        className={`fixed inset-0 z-[60] bg-[#141414] text-white pt-24 sm:pt-28 pb-10 sm:pb-12 px-5 sm:px-8 md:px-16 overflow-y-auto flex-col justify-between ${
-          isOpen ? 'flex' : 'hidden'
-        }`}
-      >
-        <div className="max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 my-auto">
-          {/* Directory Navigation Links */}
-          <div className="lg:col-span-7 flex flex-col justify-center space-y-2 sm:space-y-3">
-            {/* Search Quick Launcher inside drawer */}
-            <button
-              type="button"
-              onClick={() => {
-                setIsOpen(false);
-                setIsSearchOpen(true);
-              }}
-              className="w-full text-left p-3 sm:p-3.5 mb-2 sm:mb-3 bg-white/5 border border-white/15 hover:border-[#A8201A] text-white/80 hover:text-white flex items-center justify-between text-xs font-mono uppercase tracking-wider transition-colors group touch-manipulation cursor-pointer"
-            >
-              <span className="flex items-center gap-2.5 sm:gap-3 truncate">
-                <Search className="w-4 h-4 text-[#A8201A] shrink-0 group-hover:scale-110 transition-transform" />
-                <span className="truncate text-[11px] sm:text-xs">Search Services, Projects, Bylaws...</span>
-              </span>
-              <kbd className="hidden sm:inline px-2 py-0.5 bg-white/10 text-white/60 text-[10px] rounded font-mono shrink-0">
-                ⌘K
-              </kbd>
-            </button>
-
-            <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-white/40 mb-1 sm:mb-2">
-              Navigation Directory
-            </p>
-            {NAV_LINKS.map((item) => (
-              <div key={item.href}>
-                <Link
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="group flex items-baseline gap-4 sm:gap-6 py-2 sm:py-2.5 border-b border-white/10 hover:border-white/40 transition-colors touch-manipulation cursor-pointer"
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: '-100%' }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: '-100%' }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-30 bg-[#141414] text-white pt-28 pb-12 px-6 md:px-16 overflow-y-auto flex flex-col justify-between"
+          >
+            <div className="max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 my-auto">
+              {/* Directory Navigation Links */}
+              <div className="lg:col-span-7 flex flex-col justify-center space-y-3">
+                {/* Search Quick Launcher inside drawer */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsSearchOpen(true);
+                  }}
+                  className="w-full text-left p-3.5 mb-3 bg-white/5 border border-white/15 hover:border-[#A8201A] text-white/80 hover:text-white flex items-center justify-between text-xs font-mono uppercase tracking-wider transition-colors group cursor-pointer"
                 >
-                  <span className="text-xs font-mono text-[#A8201A]">{item.index}</span>
-                  <span className="text-xl sm:text-2xl md:text-5xl font-light uppercase tracking-tight group-hover:translate-x-3 transition-transform duration-300">
-                    {item.label}
+                  <span className="flex items-center gap-3">
+                    <Search className="w-4 h-4 text-[#A8201A] group-hover:scale-110 transition-transform pointer-events-none" />
+                    <span>Search Services, Projects, CDA Bylaws &amp; BOQs...</span>
                   </span>
-                  <ArrowUpRight className="ml-auto w-4 h-4 sm:w-6 sm:h-6 opacity-60 sm:opacity-0 group-hover:opacity-100 transition-opacity text-[#A8201A]" />
-                </Link>
+                  <kbd className="px-2 py-0.5 bg-white/10 text-white/60 text-[10px] rounded font-mono pointer-events-none">
+                    ⌘K
+                  </kbd>
+                </button>
+
+                <p className="text-xs uppercase tracking-[0.3em] text-white/40 mb-2">
+                  Navigation Directory
+                </p>
+                {NAV_LINKS.map((item, idx) => (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.08 + idx * 0.05 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="group flex items-baseline gap-6 py-2.5 border-b border-white/10 hover:border-white/40 transition-colors cursor-pointer"
+                    >
+                      <span className="text-xs font-mono text-[#A8201A]">{item.index}</span>
+                      <span className="text-2xl md:text-5xl font-light uppercase tracking-tight group-hover:translate-x-3 transition-transform duration-300">
+                        {item.label}
+                      </span>
+                      <ArrowUpRight className="ml-auto w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity text-[#A8201A]" />
+                    </Link>
+                  </motion.div>
+                ))}
               </div>
-            ))}
-          </div>
 
               {/* Studio Coordinates & Standards */}
-              <div className="lg:col-span-5 flex flex-col justify-end lg:pl-12 lg:border-l border-white/10 space-y-6 sm:space-y-8 pt-4 lg:pt-0">
+              <div className="lg:col-span-5 flex flex-col justify-end lg:pl-12 lg:border-l border-white/10 space-y-8">
                 <div>
-                  <h4 className="text-xs uppercase tracking-[0.25em] text-[#A8201A] mb-2 sm:mb-3">
+                  <h4 className="text-xs uppercase tracking-[0.25em] text-[#A8201A] mb-3">
                     Islamabad Studio (HQ)
                   </h4>
                   <p className="text-sm text-white/85 leading-relaxed">
@@ -225,7 +234,7 @@ export default function Navbar() {
                 </div>
 
                 <div>
-                  <h4 className="text-xs uppercase tracking-[0.25em] text-[#A8201A] mb-2 sm:mb-3">
+                  <h4 className="text-xs uppercase tracking-[0.25em] text-[#A8201A] mb-3">
                     Direct Consultation Line
                   </h4>
                   <a
@@ -233,7 +242,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noreferrer"
                     onClick={() => setIsOpen(false)}
-                    className="inline-flex items-center gap-2 text-sm sm:text-base text-white hover:text-[#A8201A] transition-colors font-mono"
+                    className="inline-flex items-center gap-2 text-base text-white hover:text-[#A8201A] transition-colors font-mono"
                   >
                     <PhoneCall className="w-4 h-4 text-[#A8201A]" />
                     <span>+92 333 525 1768</span>
@@ -248,7 +257,9 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
         </>
       );
     }

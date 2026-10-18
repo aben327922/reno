@@ -3,7 +3,6 @@ import { Oswald, Plus_Jakarta_Sans, Cormorant_Garamond } from 'next/font/google'
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ArchitecturalChatbot from '@/components/ArchitecturalChatbot';
 
 const oswald = Oswald({
   subsets: ['latin'],
@@ -66,7 +65,6 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        <ArchitecturalChatbot />
       </body>
     </html>
   );
