@@ -107,30 +107,22 @@ export default function HomePage() {
 
   return (
     <main className="bg-[#F6F5F2] text-[#141414] overflow-x-hidden">
-      {/* 1. HERO SECTION (Full-viewport with smooth photo fade and 3 background video cards) */}
+      {/* 1. HERO SECTION (Full-viewport with ambient photo and 3 background video cards) */}
       <section className="relative min-h-[100svh] lg:h-screen lg:min-h-[720px] w-full flex items-center lg:items-end overflow-hidden bg-[#141414] pt-24 sm:pt-28 pb-12 lg:pt-0 lg:pb-24">
-        {/* Layer 1: Initial Architectural Photo that dissolves gracefully into ambient texture */}
-        <motion.div
-          initial={{ opacity: 1, scale: 1.04 }}
-          animate={{ opacity: 0.3, scale: 1.01 }}
-          transition={{ duration: 3.2, delay: 1.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="absolute inset-0 bg-cover bg-center z-0"
+        {/* Layer 1: Architectural Ambient Base Photo */}
+        <div
+          className="absolute inset-0 bg-cover bg-center z-0 opacity-30"
           style={{
             backgroundImage: "url('/images/hero/renov8-home-hero.webp')",
             filter: 'sepia(8%) contrast(98%) brightness(82%)',
           }}
         />
 
-        {/* Layer 2: 3 Architectural Video Cards in the Background (slow, buttery staggered glide) */}
+        {/* Layer 2: 3 Architectural Video Cards in the Background (Buttery staggered layout, guaranteed visible) */}
         <div className="absolute inset-0 z-[1] overflow-hidden flex items-center justify-center pointer-events-none p-2 sm:p-4 md:p-8 lg:p-12">
           <div className="w-full h-full max-w-[1560px] mx-auto grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 lg:gap-8 items-stretch py-4 sm:py-6 md:py-10">
             {/* Background Card 1: Coming DOWN from top */}
-            <motion.div
-              initial={{ y: -120, opacity: 0 }}
-              animate={{ y: 24, opacity: 1 }}
-              transition={{ duration: 2.6, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative h-full w-full overflow-hidden border border-white/20 bg-black/50 shadow-2xl"
-            >
+            <div className="relative h-full w-full overflow-hidden border border-white/20 bg-black/50 shadow-2xl translate-y-3 sm:translate-y-6">
               <video
                 src="/videos/services/home-reno-remodeling/home-reno-remodeling-1.mp4"
                 poster="/images/hero/renov8-home-hero.webp"
@@ -141,15 +133,10 @@ export default function HomePage() {
                 preload="auto"
                 className="w-full h-full object-cover"
               />
-            </motion.div>
+            </div>
 
             {/* Background Card 2: Going UP from bottom */}
-            <motion.div
-              initial={{ y: 120, opacity: 0 }}
-              animate={{ y: -24, opacity: 1 }}
-              transition={{ duration: 2.6, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative h-full w-full overflow-hidden border border-white/25 bg-black/50 shadow-2xl"
-            >
+            <div className="relative h-full w-full overflow-hidden border border-white/25 bg-black/50 shadow-2xl -translate-y-3 sm:-translate-y-6">
               <video
                 src="/videos/services/interior-space-planning/interior-space-2.mp4"
                 poster="/images/hero/renov8-home-hero.webp"
@@ -160,15 +147,10 @@ export default function HomePage() {
                 preload="auto"
                 className="w-full h-full object-cover"
               />
-            </motion.div>
+            </div>
 
             {/* Background Card 3: Coming DOWN from top */}
-            <motion.div
-              initial={{ y: -120, opacity: 0 }}
-              animate={{ y: 24, opacity: 1 }}
-              transition={{ duration: 2.6, delay: 2.6, ease: [0.16, 1, 0.3, 1] }}
-              className="relative h-full w-full overflow-hidden border border-white/20 bg-black/50 shadow-2xl"
-            >
+            <div className="relative h-full w-full overflow-hidden border border-white/20 bg-black/50 shadow-2xl translate-y-3 sm:translate-y-6">
               <video
                 src="/videos/services/cabinet-works/cabinet-joinery-1.mp4"
                 poster="/images/hero/renov8-home-hero.webp"
@@ -179,21 +161,16 @@ export default function HomePage() {
                 preload="auto"
                 className="w-full h-full object-cover"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
 
         {/* Layer 3: Softened Dark Overlay (reduced black shade for luminance, while keeping text readable) */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#141414]/85 via-[#141414]/40 to-[#141414]/25 pointer-events-none" />
 
-        {/* Layer 4: Foreground Content Sitting in Front of the 3 Background Video Cards */}
+        {/* Layer 4: Foreground Content Sitting in Front of the 3 Background Video Cards (Guaranteed 100% Visible) */}
         <div className="relative z-10 max-w-[1440px] w-full mx-auto px-5 sm:px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
-          <motion.div
-            initial={{ opacity: 0, y: 35 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-8"
-          >
+          <div className="lg:col-span-8">
             <p className="text-[11px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-white/90 mb-3 sm:mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#A8201A]" />
               <span>Islamabad · Pakistan — 14 Specialist Categories</span>
@@ -225,15 +202,10 @@ export default function HomePage() {
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           {/* Floating Architectural Material Edit Card (visible on desktop) */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.4 }}
-            className="hidden lg:block lg:col-span-4 bg-[#141414]/80 backdrop-blur-md border border-white/15 p-6 text-white space-y-4"
-          >
+          <div className="hidden lg:block lg:col-span-4 bg-[#141414]/80 backdrop-blur-md border border-white/15 p-6 text-white space-y-4">
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <span className="text-[10px] uppercase tracking-[0.25em] text-[#A8201A]">
                 Material Edit
@@ -245,7 +217,7 @@ export default function HomePage() {
               Built around the way you live—combining architectural design thinking and hands-on
               civil and interior craft under one roof.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -353,61 +325,55 @@ export default function HomePage() {
             })}
           </div>
 
-          {/* Active Pillar Content */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activePillar.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.45 }}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-14 items-center"
-            >
-              <div className="lg:col-span-6 space-y-8">
-                <h3 className="text-3xl md:text-4xl font-bold uppercase tracking-tight">
-                  {activePillar.title}
-                </h3>
-                <p className="text-base md:text-lg text-black/75 leading-relaxed">
-                  {activePillar.description}
-                </p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                  {activePillar.subDisciplines.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center gap-3 text-sm md:text-base font-serif italic text-black/85 border-b border-black/10 pb-3"
-                    >
-                      <span className="w-1.5 h-1.5 bg-[#A8201A] rounded-full shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <div className="pt-4">
-                  <Link
-                    href="/services"
-                    className="group inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] font-semibold py-4 px-7 bg-[#141414] text-white hover:bg-[#A8201A] transition-colors"
+          {/* Active Pillar Content (Guaranteed 100% visible on all devices, seamless tab switching) */}
+          <div
+            key={activePillar.id}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 pt-10 sm:pt-14 items-center transition-opacity duration-300"
+          >
+            <div className="lg:col-span-6 space-y-6 sm:space-y-8">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight">
+                {activePillar.title}
+              </h3>
+              <p className="text-base md:text-lg text-black/75 leading-relaxed">
+                {activePillar.description}
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-2">
+                {activePillar.subDisciplines.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-3 text-sm md:text-base font-serif italic text-black/85 border-b border-black/10 pb-3"
                   >
-                    <span>{activePillar.linkText}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
+                    <span className="w-1.5 h-1.5 bg-[#A8201A] rounded-full shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="pt-2 sm:pt-4">
+                <Link
+                  href="/services"
+                  className="group inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] font-semibold py-3.5 sm:py-4 px-6 sm:px-7 bg-[#141414] text-white hover:bg-[#A8201A] transition-colors"
+                >
+                  <span>{activePillar.linkText}</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
+            </div>
 
-              <div className="lg:col-span-6">
-                <div className="relative aspect-[16/11] overflow-hidden bg-black group">
-                  <img
-                    src={activePillar.image}
-                    alt={activePillar.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  {activePillar.videoUrl && (
-                    <div className="absolute bottom-4 right-4 bg-[#141414]/90 text-white text-[10px] uppercase font-mono tracking-widest px-3 py-1 backdrop-blur-sm border border-white/10">
-                      Craft in Motion
-                    </div>
-                  )}
-                </div>
+            <div className="lg:col-span-6">
+              <div className="relative aspect-[16/11] overflow-hidden bg-black group">
+                <img
+                  src={activePillar.image}
+                  alt={activePillar.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                {activePillar.videoUrl && (
+                  <div className="absolute bottom-4 right-4 bg-[#141414]/90 text-white text-[10px] uppercase font-mono tracking-widest px-3 py-1 backdrop-blur-sm border border-white/10">
+                    Craft in Motion
+                  </div>
+                )}
               </div>
-            </motion.div>
-          </AnimatePresence>
+            </div>
+          </div>
         </div>
       </section>
 
