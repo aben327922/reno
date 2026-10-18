@@ -482,7 +482,7 @@ export default function ArchitecturalChatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 25, scale: 0.95 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="w-[94vw] sm:w-[460px] h-[640px] max-h-[88vh] bg-[#F6F5F2] border border-black/20 shadow-2xl flex flex-col justify-between overflow-hidden mb-4"
+            className="w-[calc(100vw-32px)] sm:w-[460px] h-[640px] max-h-[85vh] bg-[#F6F5F2] border border-black/20 shadow-2xl flex flex-col justify-between overflow-hidden mb-4"
           >
             {/* Header */}
             <div className="bg-[#141414] text-white p-3.5 sm:p-4 flex items-center justify-between border-b border-white/10">
@@ -505,18 +505,30 @@ export default function ArchitecturalChatbot() {
 
               <div className="flex items-center gap-1.5">
                 <button
+                  type="button"
                   onClick={resetChat}
+                  onTouchEnd={(e) => {
+                    e.preventDefault();
+                    resetChat();
+                  }}
                   title="Reset Conversation"
-                  className="p-1.5 text-white/60 hover:text-white transition-colors cursor-pointer"
+                  aria-label="Reset Conversation"
+                  className="p-2 text-white/60 hover:text-white transition-colors cursor-pointer touch-manipulation"
                 >
-                  <RotateCcw className="w-3.5 h-3.5" />
+                  <RotateCcw className="w-3.5 h-3.5 pointer-events-none" />
                 </button>
                 <button
+                  type="button"
                   onClick={() => setIsOpen(false)}
+                  onTouchEnd={(e) => {
+                    e.preventDefault();
+                    setIsOpen(false);
+                  }}
                   title="Close Concierge"
-                  className="p-1.5 text-white/60 hover:text-white transition-colors cursor-pointer"
+                  aria-label="Close Concierge"
+                  className="p-2 text-white/60 hover:text-white transition-colors cursor-pointer touch-manipulation"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-4 h-4 pointer-events-none" />
                 </button>
               </div>
             </div>
@@ -699,13 +711,17 @@ export default function ArchitecturalChatbot() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsOpen(!isOpen)}
-          className="relative w-14 h-14 bg-[#141414] hover:bg-[#A8201A] text-white shadow-2xl flex items-center justify-center transition-colors cursor-pointer border border-white/20"
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            setIsOpen(!isOpen);
+          }}
+          className="relative w-14 h-14 bg-[#141414] hover:bg-[#A8201A] text-white shadow-2xl flex items-center justify-center transition-colors cursor-pointer border border-white/20 touch-manipulation select-none"
           aria-label="Open Architectural Concierge"
         >
           {isOpen ? (
-            <X className="w-6 h-6" />
+            <X className="w-6 h-6 pointer-events-none" />
           ) : (
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center pointer-events-none">
               <span className="font-serif italic font-bold text-lg leading-none tracking-tight">
                 R8
               </span>
@@ -717,7 +733,7 @@ export default function ArchitecturalChatbot() {
 
           {/* Live Indicator Pill */}
           {!isOpen && (
-            <span className="absolute -top-1 -right-1 flex h-3 w-3">
+            <span className="absolute -top-1 -right-1 flex h-3 w-3 pointer-events-none">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A8201A] opacity-75" />
               <span className="relative inline-flex rounded-full h-3 w-3 bg-[#A8201A]" />
             </span>

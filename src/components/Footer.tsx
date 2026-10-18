@@ -295,11 +295,11 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Crimson Square Scroll-To-Top Button on Bottom Right */}
+      {/* Crimson Square Scroll-To-Top Button on Bottom Right (Positioned above Chatbot) */}
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
-        className="fixed bottom-6 right-6 z-40 w-11 h-11 bg-[#A8201A] hover:bg-[#8B1914] text-white flex items-center justify-center shadow-lg transition-colors focus:outline-none cursor-pointer"
+        className="fixed bottom-24 right-6 z-40 w-11 h-11 bg-[#A8201A] hover:bg-[#8B1914] text-white flex items-center justify-center shadow-lg transition-colors focus:outline-none cursor-pointer"
       >
         <ArrowUp className="w-5 h-5" />
       </button>
