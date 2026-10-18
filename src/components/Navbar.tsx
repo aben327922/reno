@@ -64,9 +64,9 @@ export default function Navbar() {
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Exact Dual-Tone Serif Lockup for RENOV8 + Vertical Divider + 3-Line Subtitle */}
           <Link href="/" className="flex items-center gap-4 group">
-            <div className="text-3xl md:text-4xl font-serif tracking-tighter leading-none select-none">
+            <div className="text-3xl md:text-4xl font-serif tracking-tight leading-none select-none flex items-baseline">
               <span className="text-[#A8201A] font-normal">RENOV</span>
-              <span className="text-white font-normal">8</span>
+              <span className="text-white font-normal ml-0.5 lining-nums">8</span>
             </div>
             <div className="h-8 w-[1px] bg-white/25" />
             <div className="flex flex-col text-[9px] md:text-[10px] tracking-[0.26em] text-white/80 font-light leading-[1.35] uppercase">

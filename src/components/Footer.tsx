@@ -58,9 +58,9 @@ export default function Footer() {
           {/* Column 1: Brand Identity & Monograph Statement (4 Cols) */}
           <div className="lg:col-span-4 space-y-6">
             <Link href="/" className="flex items-center gap-4">
-              <div className="text-3xl sm:text-4xl font-serif tracking-tighter leading-none">
+              <div className="text-3xl sm:text-4xl font-serif tracking-tight leading-none flex items-baseline">
                 <span className="text-[#A8201A]">RENOV</span>
-                <span className="text-white">8</span>
+                <span className="text-white ml-0.5 lining-nums">8</span>
               </div>
               <div className="h-8 w-[1px] bg-white/25" />
               <div className="flex flex-col text-[9px] tracking-[0.26em] text-white/75 uppercase leading-[1.35]">
