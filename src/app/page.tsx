@@ -108,11 +108,11 @@ export default function HomePage() {
   return (
     <main className="bg-[#F6F5F2] text-[#141414] overflow-x-hidden">
       {/* 1. HERO SECTION (Full-viewport with smooth photo fade and 3 background video cards) */}
-      <section className="relative h-screen min-h-[720px] w-full flex items-end overflow-hidden bg-[#141414]">
-        {/* Layer 1: Initial Architectural Photo that dissolves slowly and smoothly */}
+      <section className="relative min-h-[100svh] lg:h-screen lg:min-h-[720px] w-full flex items-center lg:items-end overflow-hidden bg-[#141414] pt-24 sm:pt-28 pb-12 lg:pt-0 lg:pb-24">
+        {/* Layer 1: Initial Architectural Photo that dissolves gracefully into ambient texture */}
         <motion.div
           initial={{ opacity: 1, scale: 1.04 }}
-          animate={{ opacity: 0, scale: 1.01 }}
+          animate={{ opacity: 0.3, scale: 1.01 }}
           transition={{ duration: 3.2, delay: 1.4, ease: [0.25, 0.1, 0.25, 1] }}
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
@@ -122,8 +122,8 @@ export default function HomePage() {
         />
 
         {/* Layer 2: 3 Architectural Video Cards in the Background (slow, buttery staggered glide) */}
-        <div className="absolute inset-0 z-[1] overflow-hidden flex items-center justify-center pointer-events-none p-4 md:p-8 lg:p-12">
-          <div className="w-full h-full max-w-[1560px] mx-auto grid grid-cols-3 gap-3 md:gap-6 lg:gap-8 items-stretch py-6 md:py-10">
+        <div className="absolute inset-0 z-[1] overflow-hidden flex items-center justify-center pointer-events-none p-2 sm:p-4 md:p-8 lg:p-12">
+          <div className="w-full h-full max-w-[1560px] mx-auto grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 lg:gap-8 items-stretch py-4 sm:py-6 md:py-10">
             {/* Background Card 1: Coming DOWN from top */}
             <motion.div
               initial={{ y: -120, opacity: 0 }}
@@ -133,10 +133,12 @@ export default function HomePage() {
             >
               <video
                 src="/videos/services/home-reno-remodeling/home-reno-remodeling-1.mp4"
+                poster="/images/hero/renov8-home-hero.webp"
                 autoPlay
                 loop
                 playsInline
                 muted
+                preload="auto"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -150,10 +152,12 @@ export default function HomePage() {
             >
               <video
                 src="/videos/services/interior-space-planning/interior-space-2.mp4"
+                poster="/images/hero/renov8-home-hero.webp"
                 autoPlay
                 loop
                 playsInline
                 muted
+                preload="auto"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -167,10 +171,12 @@ export default function HomePage() {
             >
               <video
                 src="/videos/services/cabinet-works/cabinet-joinery-1.mp4"
+                poster="/images/hero/renov8-home-hero.webp"
                 autoPlay
                 loop
                 playsInline
                 muted
+                preload="auto"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -178,32 +184,32 @@ export default function HomePage() {
         </div>
 
         {/* Layer 3: Softened Dark Overlay (reduced black shade for luminance, while keeping text readable) */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#141414]/80 via-[#141414]/30 to-[#141414]/20 pointer-events-none" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#141414]/85 via-[#141414]/40 to-[#141414]/25 pointer-events-none" />
 
         {/* Layer 4: Foreground Content Sitting in Front of the 3 Background Video Cards */}
-        <div className="relative z-10 max-w-[1440px] w-full mx-auto px-6 md:px-12 pb-20 md:pb-28 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+        <div className="relative z-10 max-w-[1440px] w-full mx-auto px-5 sm:px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
           <motion.div
             initial={{ opacity: 0, y: 35 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-8"
           >
-            <p className="text-xs uppercase tracking-[0.3em] text-white/90 mb-4 flex items-center gap-2">
+            <p className="text-[11px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-white/90 mb-3 sm:mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#A8201A]" />
               <span>Islamabad · Pakistan — 14 Specialist Categories</span>
             </p>
 
-            <h1 className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight leading-[0.95]">
+            <h1 className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight leading-[1.05] sm:leading-[0.95]">
               WE DON&apos;T JUST RENOVATE. <br />
               <span className="font-light italic font-serif text-white/95">WE REIMAGINE.</span>
             </h1>
 
-            <p className="mt-6 text-white/90 text-base md:text-xl max-w-xl font-light leading-relaxed">
+            <p className="mt-4 sm:mt-6 text-white/90 text-sm sm:text-base md:text-xl max-w-xl font-light leading-relaxed">
               Thoughtful interiors, precise construction and beautiful finishes, brought together by
               one experienced team.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-8">
+            <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-8">
               <Link
                 href="/work"
                 className="group inline-flex items-center gap-3 text-white text-sm md:text-base font-medium pb-2 border-b-2 border-white hover:border-[#A8201A] transition-colors"
@@ -221,12 +227,12 @@ export default function HomePage() {
             </div>
           </motion.div>
 
-          {/* Floating Architectural Material Edit Card */}
+          {/* Floating Architectural Material Edit Card (visible on desktop) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.4 }}
-            className="lg:col-span-4 bg-[#141414]/80 backdrop-blur-md border border-white/15 p-6 text-white space-y-4"
+            className="hidden lg:block lg:col-span-4 bg-[#141414]/80 backdrop-blur-md border border-white/15 p-6 text-white space-y-4"
           >
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <span className="text-[10px] uppercase tracking-[0.25em] text-[#A8201A]">
@@ -1022,42 +1028,42 @@ export default function HomePage() {
                 return (
                   <div key={faq.id} className="bg-transparent">
                     <button
+                      type="button"
                       onClick={() => setOpenFaqId(isOpen ? '' : faq.id)}
-                      className="w-full py-6 flex items-start justify-between text-left hover:text-[#A8201A] transition-colors group gap-6 cursor-pointer"
+                      aria-expanded={isOpen}
+                      className="w-full py-6 flex items-start justify-between text-left hover:text-[#A8201A] transition-colors group gap-4 sm:gap-6 cursor-pointer touch-manipulation select-none"
                     >
-                      <div className="flex items-baseline gap-4">
-                        <span className="font-mono text-xs text-[#A8201A] font-semibold">
+                      <div className="flex items-baseline gap-3 sm:gap-4">
+                        <span className="font-mono text-xs text-[#A8201A] font-semibold shrink-0">
                           /{faq.index}
                         </span>
                         <div>
                           <span className="text-[10px] font-mono uppercase tracking-widest text-black/45 block mb-1">
                             {faq.category}
                           </span>
-                          <h3 className="text-lg md:text-xl font-bold uppercase tracking-tight group-hover:text-[#A8201A] transition-colors">
+                          <h3 className="text-base sm:text-lg md:text-xl font-bold uppercase tracking-tight group-hover:text-[#A8201A] transition-colors">
                             {faq.question}
                           </h3>
                         </div>
                       </div>
                       <ChevronDown
-                        className={`w-5 h-5 shrink-0 transition-transform duration-300 mt-1 ${
+                        className={`w-5 h-5 shrink-0 transition-transform duration-300 mt-1 pointer-events-none ${
                           isOpen ? 'rotate-180 text-[#A8201A]' : 'text-black/40'
                         }`}
                       />
                     </button>
 
-                    <AnimatePresence>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="overflow-hidden pb-8 pl-10 pr-4 text-sm text-black/75 leading-relaxed font-light"
-                        >
+                    <div
+                      className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${
+                        isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="pb-8 pl-4 sm:pl-10 pr-4 text-sm text-black/75 leading-relaxed font-light">
                           <p>{faq.answer}</p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 );
               })}

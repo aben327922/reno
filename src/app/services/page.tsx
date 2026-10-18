@@ -398,22 +398,24 @@ export default function ServicesPage() {
               return (
                 <div key={service.id} className="bg-transparent">
                   <button
+                    type="button"
                     onClick={() => setOpenServiceId(isOpen ? '' : service.id)}
-                    className="w-full py-6 px-4 flex items-center justify-between text-left hover:bg-white/60 transition-colors group cursor-pointer"
+                    aria-expanded={isOpen}
+                    className="w-full py-6 px-3 sm:px-4 flex items-center justify-between text-left hover:bg-white/60 transition-colors group cursor-pointer touch-manipulation select-none"
                   >
-                    <div className="flex items-baseline gap-6">
-                      <span className="font-mono text-sm text-[#A8201A] font-semibold">
+                    <div className="flex items-baseline gap-4 sm:gap-6">
+                      <span className="font-mono text-sm text-[#A8201A] font-semibold shrink-0">
                         /{service.index}
                       </span>
                       <div>
-                        <h3 className="text-xl md:text-2xl font-bold uppercase tracking-tight group-hover:text-[#A8201A] transition-colors">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight group-hover:text-[#A8201A] transition-colors">
                           {service.title}
                         </h3>
                         <p className="text-xs text-black/55 mt-0.5">{service.tagline}</p>
                       </div>
                     </div>
                     <ChevronDown
-                      className={`w-5 h-5 transition-transform duration-300 shrink-0 ${
+                      className={`w-5 h-5 transition-transform duration-300 shrink-0 pointer-events-none ${
                         isOpen ? 'rotate-180 text-[#A8201A]' : 'text-black/40'
                       }`}
                     />
