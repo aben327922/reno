@@ -393,9 +393,10 @@ export default function HomePage() {
           <div className="flex flex-wrap gap-2">
             {categories.map((cat) => (
               <button
+                type="button"
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 text-xs uppercase tracking-[0.18em] transition-all border ${
+                className={`px-3.5 sm:px-4 py-2 text-xs uppercase tracking-[0.18em] transition-all border cursor-pointer touch-manipulation select-none ${
                   selectedCategory === cat
                     ? 'bg-[#141414] text-white border-[#141414]'
                     : 'bg-transparent text-black/65 border-black/15 hover:border-black'
@@ -407,55 +408,48 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Bento Grid linking to /work/[id] */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <AnimatePresence>
-            {filteredProjects.map((project) => (
-              <motion.article
-                layout
-                key={project.id}
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.4 }}
-                className="group flex flex-col justify-between bg-white border border-black/10 overflow-hidden"
-              >
-                <Link href={`/work/${project.id}`} className="block">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-[#141414]">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-                    <span className="absolute top-3 left-3 bg-[#141414]/85 backdrop-blur-sm text-white text-[9px] uppercase tracking-[0.2em] px-2.5 py-1">
-                      {project.category}
-                    </span>
-                    <span className="absolute top-3 right-3 font-mono text-xs text-white/80">
-                      /{project.index}
-                    </span>
-                  </div>
+        {/* Bento Grid linking to /work/[id] (Guaranteed 100% visible on mobile) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {filteredProjects.map((project) => (
+            <article
+              key={project.id}
+              className="group flex flex-col justify-between bg-white border border-black/10 overflow-hidden transition-all duration-300 hover:border-[#A8201A]"
+            >
+              <Link href={`/work/${project.id}`} className="block">
+                <div className="relative aspect-[4/3] overflow-hidden bg-[#141414]">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+                  <span className="absolute top-3 left-3 bg-[#141414]/85 backdrop-blur-sm text-white text-[9px] uppercase tracking-[0.2em] px-2.5 py-1">
+                    {project.category}
+                  </span>
+                  <span className="absolute top-3 right-3 font-mono text-xs text-white/80">
+                    /{project.index}
+                  </span>
+                </div>
 
-                  <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                    <div>
-                      <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#A8201A] mb-1">
-                        {project.materialEdit}
-                      </p>
-                      <h3 className="text-lg font-bold uppercase tracking-tight group-hover:text-[#A8201A] transition-colors flex items-center justify-between">
-                        <span>{project.title}</span>
-                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </h3>
-                    </div>
-
-                    <p className="text-xs text-black/65 line-clamp-3 leading-relaxed">
-                      {project.summary}
+                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#A8201A] mb-1">
+                      {project.materialEdit}
                     </p>
+                    <h3 className="text-lg font-bold uppercase tracking-tight group-hover:text-[#A8201A] transition-colors flex items-center justify-between">
+                      <span>{project.title}</span>
+                      <ArrowUpRight className="w-4 h-4 opacity-60 sm:opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </h3>
                   </div>
-                </Link>
-              </motion.article>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+
+                  <p className="text-xs text-black/65 line-clamp-3 leading-relaxed">
+                    {project.summary}
+                  </p>
+                </div>
+              </Link>
+            </article>
+          ))}
+        </div>
       </section>
 
       {/* 6. CRAFT IN MOTION / ATMOSPHERES ENVISIONED (Interactive Cinema Reel Showcase) */}

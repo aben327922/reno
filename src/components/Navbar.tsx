@@ -67,7 +67,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-[70] transition-all duration-500 ${
           scrolled
             ? 'bg-[#141414]/95 backdrop-blur-md py-3.5 sm:py-4 border-b border-white/10 shadow-2xl'
             : 'bg-[#141414] py-4 sm:py-5'
@@ -113,7 +113,7 @@ export default function Navbar() {
           </nav>
 
           {/* Right CTAs + Search Trigger + Original 3x3 Architectural Grid Button */}
-          <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex items-center gap-1.5 sm:gap-4">
             {/* Search Trigger Button */}
             <button
               type="button"
@@ -135,22 +135,22 @@ export default function Navbar() {
               <span>PKR Planner</span>
             </Link>
 
-            {/* Original 3x3 Architectural Grid Button (Smooth X Morph) */}
+            {/* Original 3x3 Architectural Grid Button (Smooth X Morph with 44px touch target) */}
             <button
               type="button"
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsOpen((prev) => !prev)}
               aria-label={isOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
               aria-expanded={isOpen}
-              className="p-2 text-white hover:text-[#A8201A] transition-colors focus:outline-none cursor-pointer touch-manipulation select-none"
+              className="w-11 h-11 flex items-center justify-center text-white hover:text-[#A8201A] transition-colors focus:outline-none cursor-pointer touch-manipulation select-none"
             >
               {isOpen ? (
-                <X className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                <X className="w-6 h-6 sm:w-7 sm:h-7 text-white pointer-events-none" />
               ) : (
-                <div className="grid grid-cols-3 gap-[4px] w-5 h-5 sm:w-6 sm:h-6">
+                <div className="grid grid-cols-3 gap-[4px] w-6 h-6 pointer-events-none items-center justify-center">
                   {Array.from({ length: 9 }).map((_, i) => (
                     <span
                       key={i}
-                      className="w-[4px] h-[4px] sm:w-[5px] sm:h-[5px] bg-white rounded-[0.5px] transition-transform duration-300"
+                      className="w-[4.5px] h-[4.5px] bg-white rounded-[0.5px] transition-transform duration-300"
                     />
                   ))}
                 </div>
@@ -165,10 +165,10 @@ export default function Navbar() {
 
       {/* Fullscreen Architectural Curtain Drawer (CSS Accelerated, Zero Framer Failure) */}
       <div
-        className={`fixed inset-0 z-40 bg-[#141414] text-white pt-24 sm:pt-28 pb-10 sm:pb-12 px-5 sm:px-8 md:px-16 overflow-y-auto flex flex-col justify-between transition-all duration-500 ease-out ${
+        className={`fixed inset-0 z-[60] bg-[#141414] text-white pt-24 sm:pt-28 pb-10 sm:pb-12 px-5 sm:px-8 md:px-16 overflow-y-auto flex flex-col justify-between transition-transform duration-500 ease-in-out ${
           isOpen
-            ? 'opacity-100 translate-y-0 visible pointer-events-auto'
-            : 'opacity-0 -translate-y-full invisible pointer-events-none'
+            ? 'translate-y-0 pointer-events-auto'
+            : '-translate-y-full pointer-events-none'
         }`}
       >
         <div className="max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 my-auto">
