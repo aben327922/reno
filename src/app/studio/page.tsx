@@ -184,9 +184,9 @@ export default function StudioPage() {
 
           {/* Headline Typography */}
           <div className="max-w-5xl space-y-4">
-            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold uppercase tracking-tight text-white leading-[0.9]">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight text-white leading-[0.95]">
               THE STUDIO. <br />
-              <span className="font-serif italic font-normal text-white/85 text-4xl sm:text-6xl md:text-7xl lg:text-8xl block mt-2">
+              <span className="font-serif italic font-normal text-white/85 text-2xl sm:text-4xl md:text-5xl block mt-2">
                 One accountable direction.
               </span>
             </h1>
@@ -236,7 +236,7 @@ export default function StudioPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Narrative */}
             <div className="lg:col-span-7 space-y-8">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight text-[#141414] leading-[0.95]">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-[#141414] leading-tight">
                 A DECADE-LONG EFFORT <br />
                 <span className="font-serif italic font-normal text-black/75">
                   toward architectural perfection.
@@ -332,7 +332,7 @@ export default function StudioPage() {
               <span className="text-xs uppercase font-mono tracking-[0.3em] text-[#A8201A] font-bold block mb-2">
                 02 / Studio Principals
               </span>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight">
                 MEET THE FOUNDERS.
               </h2>
             </div>
@@ -421,7 +421,7 @@ export default function StudioPage() {
               <span className="text-xs uppercase font-mono tracking-[0.3em] text-[#A8201A] font-bold block mb-2">
                 03 / Multidisciplinary Atelier
               </span>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight">
                 MEET THE TEAM.
               </h2>
             </div>
@@ -489,7 +489,7 @@ export default function StudioPage() {
               <span className="text-xs uppercase font-mono tracking-[0.3em] text-[#A8201A] font-bold block mb-2">
                 04 / Working Principles
               </span>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight">
                 STANDARDS THAT SHAPE EVERY SPACE.
               </h2>
             </div>
@@ -626,7 +626,7 @@ export default function StudioPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-black/10">
             {RENO_STATS.map((s, idx) => (
               <div key={s.label} className={idx > 0 ? 'sm:pl-8 pt-6 sm:pt-0' : ''}>
-                <div className="text-4xl md:text-6xl font-serif italic text-[#141414] mb-2 tracking-tight">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-serif italic text-[#141414] mb-2 tracking-tight">
                   {s.value}
                   <span className="text-[#A8201A]">{s.suffix}</span>
                 </div>

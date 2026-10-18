@@ -133,7 +133,7 @@ export default function HomePage() {
               <span>Islamabad · Pakistan — 14 Specialist Categories</span>
             </p>
 
-            <h1 className="text-white text-5xl sm:text-7xl md:text-8xl font-bold uppercase tracking-tight leading-[0.94]">
+            <h1 className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight leading-[0.95]">
               WE DON&apos;T JUST RENOVATE. <br />
               <span className="font-light italic font-serif text-white/90">WE REIMAGINE.</span>
             </h1>
@@ -190,7 +190,7 @@ export default function HomePage() {
             <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3">
               01 / Studio Ethos
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight">
               WHO WE ARE
             </h2>
           </div>
@@ -247,7 +247,7 @@ export default function HomePage() {
               <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3">
                 02 / Multidisciplinary Practice
               </span>
-              <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight leading-none">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
                 DESIGN ACROSS EVERY SCALE.
               </h2>
             </div>
@@ -349,7 +349,7 @@ export default function HomePage() {
             <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3">
               03 / Selected Directions
             </span>
-            <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight">
               SPACES WITH A POINT OF VIEW.
             </h2>
           </div>
@@ -431,7 +431,7 @@ export default function HomePage() {
               <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3 font-semibold">
                 04 / Visual Telemetry &amp; Spatial Studies
               </span>
-              <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight leading-none text-white">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight text-white">
                 ATMOSPHERES ENVISIONED. <br />
                 <span className="font-serif italic font-normal text-white/90">Craft in motion.</span>
               </h2>
@@ -580,7 +580,7 @@ export default function HomePage() {
               <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3 font-semibold">
                 05 / Global Sourcing &amp; Mill Provenance
               </span>
-              <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight leading-none">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
                 MATERIALS THAT AGE WELL. <br />
                 <span className="font-serif italic font-normal">Authorized brand ecosystem.</span>
               </h2>
@@ -665,7 +665,7 @@ export default function HomePage() {
               <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3 font-semibold">
                 06 / Delivery Sequence
               </span>
-              <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight leading-none">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
                 CALM IS DESIGNED IN. <br />
                 <span className="font-serif italic font-normal">Our 4-stage protocol.</span>
               </h2>
@@ -784,7 +784,7 @@ export default function HomePage() {
               <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block font-semibold">
                 07 / Expatriate &amp; Overseas Custodianship
               </span>
-              <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight text-white leading-[0.98]">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-white leading-tight">
                 PROJECTS FROM ABROAD. <br />
                 <span className="font-serif italic font-normal text-white/90">
                   Your project, even when you&apos;re away.
@@ -858,7 +858,7 @@ export default function HomePage() {
               <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3 font-semibold">
                 08 / Field Intelligence &amp; Municipal Bylaws
               </span>
-              <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight leading-none">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
                 USEFUL THINKING. <br />
                 <span className="font-serif italic font-normal">Before the dust begins.</span>
               </h2>
@@ -922,7 +922,7 @@ export default function HomePage() {
                   <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3 font-semibold">
                     09 / Advisory &amp; Transparency
                   </span>
-                  <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight leading-none mb-4">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight mb-3">
                     BEFORE WE BEGIN. <br />
                     <span className="font-serif italic font-normal">Planning with clarity.</span>
                   </h2>
@@ -1009,7 +1009,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
             {RENO_STATS.map((stat, idx) => (
               <div key={stat.label} className={`${idx > 0 ? 'sm:pl-10 pt-8 sm:pt-0' : ''}`}>
-                <div className="text-5xl md:text-7xl font-light tracking-tight text-white mb-4 font-serif italic">
+                <div className="text-4xl md:text-5xl font-light tracking-tight text-white mb-3 font-serif italic">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
                 <h3 className="text-xs uppercase tracking-[0.25em] text-[#A8201A] font-semibold mb-2">
@@ -1025,7 +1025,7 @@ export default function HomePage() {
       {/* 6. DUAL-ROW OPPOSING INFINITE MARQUEE */}
       <section className="py-24 bg-[#F6F5F2] border-t border-black/10 overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-12 flex items-baseline justify-between">
-          <h2 className="text-3xl md:text-5xl uppercase tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight">
             <span className="font-bold">OUR</span>{' '}
             <span className="font-serif italic font-normal text-[#A8201A]">CAPABILITIES</span>
           </h2>

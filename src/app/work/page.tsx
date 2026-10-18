@@ -33,9 +33,9 @@ export default function WorkPage() {
           <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block font-semibold">
             Archive 2013 — 2026 · Selected Works
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tight leading-[0.95]">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight leading-[0.95]">
             SELECTED WORKS. <br />
-            <span className="font-serif italic font-normal text-black/80">Built to endure.</span>
+            <span className="font-serif italic font-normal text-black/80 text-2xl sm:text-4xl md:text-5xl block mt-1">Built to endure.</span>
           </h1>
           <p className="text-lg md:text-xl text-black/70 font-light leading-relaxed">
             Exploring how Renov8 unites structure, materiality (Stone · Oak · Steel), and daily living

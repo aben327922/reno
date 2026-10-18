@@ -32,7 +32,7 @@ export default function PublicationsPage() {
           <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3 font-semibold">
             Renov8 Editorial &amp; Field Notes
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight mb-4">
             PUBLICATIONS &amp; GUIDES
           </h1>
           <p className="text-lg md:text-xl text-black/70 font-light leading-relaxed">

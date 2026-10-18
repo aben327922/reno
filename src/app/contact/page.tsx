@@ -39,9 +39,9 @@ export default function ContactPage() {
           <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block font-semibold">
             Renov8 Studio Headquarters · Islamabad
           </span>
-          <h1 className="text-5xl sm:text-7xl font-bold uppercase tracking-tight leading-[0.95]">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight leading-[0.95]">
             LET&apos;S CONNECT. <br />
-            <span className="font-serif italic font-normal text-black/80">Start your space.</span>
+            <span className="font-serif italic font-normal text-black/80 text-2xl sm:text-4xl md:text-5xl block mt-1">Start your space.</span>
           </h1>
           <p className="text-base md:text-xl text-black/70 font-light leading-relaxed max-w-2xl">
             Whether commissioning a full villa transformation in Sector F-7, an executive fit-out in
