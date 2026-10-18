@@ -24,7 +24,7 @@ export default function Footer() {
               <div className="flex flex-col text-[9px] tracking-[0.26em] text-white/75 uppercase leading-[1.35]">
                 <span>Architecture</span>
                 <span>Renovation</span>
-                <span>Syndicate</span>
+                <span>Studio</span>
               </div>
             </Link>
 
@@ -143,7 +143,7 @@ export default function Footer() {
 
         {/* Bottom Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-white/45 gap-4">
-          <p>© 2026 Renov8 Architecture &amp; Renovation Syndicate, All Rights Reserved.</p>
+          <p>© 2026 Renov8 Architecture &amp; Renovation Studio, All Rights Reserved.</p>
           <p className="uppercase tracking-[0.2em] text-[11px]">
             Stone · Oak · Steel — Islamabad, Pakistan
           </p>

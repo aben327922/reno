@@ -72,7 +72,7 @@ export default function Navbar() {
             <div className="flex flex-col text-[9px] md:text-[10px] tracking-[0.26em] text-white/80 font-light leading-[1.35] uppercase">
               <span>Architecture</span>
               <span>Renovation</span>
-              <span>Syndicate</span>
+              <span>Studio</span>
             </div>
           </Link>
 

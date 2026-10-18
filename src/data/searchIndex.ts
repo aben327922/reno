@@ -564,10 +564,10 @@ export const SEARCH_INDEX: SearchItem[] = [
   // -------------------------------------------------------------
   {
     id: 'std-01',
-    title: 'The Studio: Alvie & Rao Architects Syndicate (Est. 2013)',
+    title: 'The Studio: Alvie & Rao Architects (Est. 2013)',
     category: 'Studio & Policies',
     subtitle: 'Founded by Alumni of NUST & University of Sydney',
-    snippet: 'Explore our 13+ year trajectory from a student-led architecture studio to Islamabad’s premier turnkey syndicate uniting design, BOQs, and 14 in-house specialist divisions.',
+    snippet: 'Explore our 13+ year trajectory from a student-led architecture studio to Islamabad’s premier turnkey design & build firm uniting design, BOQs, and 14 in-house specialist divisions.',
     url: '/studio',
     keywords: ['studio', 'about us', 'founders', 'arsalan alvie', 'rao umair', 'nust alumni', 'sydney university', 'blue area studio', 'history'],
     badge: 'Leadership',

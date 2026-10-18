@@ -19,7 +19,7 @@ import {
 import { RENO_STATS } from '@/data/renoData';
 
 export const metadata: Metadata = {
-  title: 'The Studio | Renov8 Architecture & Renovation Syndicate Islamabad',
+  title: 'The Studio | Renov8 Architecture & Renovation Studio Islamabad',
   description:
     'Founded in 2013 by alumni of NUST & University of Sydney. Explore Renov8’s studio history, founders Ar. Arsalan Alvie & Ar. Rao Umair Afzaal, multidisciplinary atelier team, and turnkey delivery standards.',
 };
@@ -178,7 +178,7 @@ export default function StudioPage() {
               Established 2013
             </span>
             <span className="text-[11px] uppercase font-mono tracking-[0.2em] text-white/60">
-              Alvie &amp; Rao Architects Syndicate · Islamabad HQ
+              Alvie &amp; Rao Architects · Design &amp; Build Studio · Islamabad HQ
             </span>
           </div>
 
@@ -192,7 +192,7 @@ export default function StudioPage() {
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl font-light text-white/75 leading-relaxed max-w-3xl pt-2">
               Started off as an architecture studio in 2013. Over a decade of deliberate practice,
-              Renov8 has evolved into Islamabad’s foremost turnkey architectural syndicate—uniting
+              Renov8 has evolved into Islamabad’s foremost turnkey architecture &amp; renovation studio—uniting
               conceptual spatial design, itemized BOQ engineering, and 14 in-house specialist trades
               under a single contract.
             </p>
@@ -251,7 +251,7 @@ export default function StudioPage() {
                   effort delivering bespoke homes, institutional spaces, and commercial landmarks.
                 </p>
                 <p>
-                  We are a syndicate of qualified, licensed architects, structural engineers, and master craftsmen
+                  We are a collective of qualified, licensed architects, structural engineers, and master craftsmen
                   who strive to achieve perfection in each detail of our work. Each team member brings their own
                   honest style and architectural worldview that uniquely adds to the beauty and endurance of
                   our finished spaces—while abiding strictly by the studio’s foundational principles and rigorous work ethic.
@@ -404,7 +404,7 @@ export default function StudioPage() {
                 </div>
 
                 <div className="p-6 bg-[#EAE8E3]/60 border-t border-black/10 flex items-center justify-between text-xs font-mono uppercase tracking-wider text-black/70">
-                  <span>Renov8 Syndicate Partner</span>
+                  <span>Renov8 Studio Partner</span>
                   <span className="text-[#A8201A] font-bold">13+ Years Active</span>
                 </div>
               </div>
