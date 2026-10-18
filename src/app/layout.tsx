@@ -3,6 +3,7 @@ import { Oswald, Plus_Jakarta_Sans, Cormorant_Garamond } from 'next/font/google'
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ArchitecturalChatbot from '@/components/ArchitecturalChatbot';
 
 const oswald = Oswald({
   subsets: ['latin'],
@@ -28,6 +29,20 @@ export const metadata: Metadata = {
   title: 'Renov8 | Architecture & Renovation Syndicate',
   description:
     'Renov8 (Architecture & Renovation Syndicate) is a multidisciplinary design-build studio crafting enduring spaces across Islamabad, Pakistan. 14 in-house specialist divisions under one accountable standard.',
+  manifest: '/site.webmanifest',
+  icons: {
+    icon: '/images/brand/logo-dark.png',
+    apple: '/images/brand/logo.png',
+  },
+  openGraph: {
+    title: 'Renov8 | Architecture & Renovation Syndicate',
+    description:
+      'Turnkey architectural design, construction and interior renovation studio in Islamabad & Rawalpindi. 14 specialist trades, itemized BOQ contracts, and 12-month warranty.',
+    url: 'https://www.renov8.com.pk',
+    siteName: 'Renov8',
+    locale: 'en_PK',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
@@ -44,6 +59,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <ArchitecturalChatbot />
       </body>
     </html>
   );

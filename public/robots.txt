@@ -1,0 +1,7 @@
+# Robots.txt for Renov8 (Pakistan)
+# Domain: https://www.renov8.com.pk
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.renov8.com.pk/sitemap.xml
