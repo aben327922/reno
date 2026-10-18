@@ -163,12 +163,10 @@ export default function Navbar() {
       {/* Global Architectural Search Command Palette */}
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
-      {/* Fullscreen Architectural Curtain Drawer (CSS Accelerated, Zero Framer Failure) */}
+      {/* Fullscreen Architectural Curtain Drawer */}
       <div
-        className={`fixed inset-0 z-[60] bg-[#141414] text-white pt-24 sm:pt-28 pb-10 sm:pb-12 px-5 sm:px-8 md:px-16 overflow-y-auto flex flex-col justify-between transition-transform duration-500 ease-in-out ${
-          isOpen
-            ? 'translate-y-0 pointer-events-auto'
-            : '-translate-y-full pointer-events-none'
+        className={`fixed inset-0 z-[60] bg-[#141414] text-white pt-24 sm:pt-28 pb-10 sm:pb-12 px-5 sm:px-8 md:px-16 overflow-y-auto flex-col justify-between ${
+          isOpen ? 'flex' : 'hidden'
         }`}
       >
         <div className="max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 my-auto">
