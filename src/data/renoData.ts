@@ -711,3 +711,297 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
     readTime: '5 min read'
   }
 ];
+
+export interface ReelConcept {
+  id: string;
+  index: string;
+  title: string;
+  category: 'Living' | 'Kitchen' | 'Build' | 'Joinery' | 'Systems' | 'Bath' | 'Outdoor' | 'Exterior';
+  aspect: string;
+  code: string;
+  videoUrl: string;
+}
+
+export const REEL_CONCEPTS: ReelConcept[] = [
+  {
+    id: 'serenity-living',
+    index: '01',
+    title: 'Serenity Living Concept',
+    category: 'Living',
+    aspect: 'Japandi textures, linen finishes, and quiet natural light choreography.',
+    code: 'ISB-LV-01',
+    videoUrl: '/videos/reels/interior-design.mp4'
+  },
+  {
+    id: 'monolithic-kitchen',
+    index: '02',
+    title: 'Monolithic Quartz Kitchen',
+    category: 'Kitchen',
+    aspect: 'Concealed Blum tandembox, waterfall quartz island, downdraft extraction.',
+    code: 'ISB-KT-02',
+    videoUrl: '/videos/reels/kitchen.mp4'
+  },
+  {
+    id: 'structural-frame',
+    index: '03',
+    title: 'Seismic Structural Frame',
+    category: 'Build',
+    aspect: 'Reinforced RCC column framing, grade-60 steel, seismic tie-beams.',
+    code: 'ISB-CW-03',
+    videoUrl: '/videos/reels/construction.mp4'
+  },
+  {
+    id: 'fluted-joinery',
+    index: '04',
+    title: 'Architectural Fluted Oak',
+    category: 'Joinery',
+    aspect: 'Bespoke walk-in dressing suites, integrated warm LED reveals, mitred joints.',
+    code: 'ISB-JN-04',
+    videoUrl: '/videos/reels/cabinet-joinery.mp4'
+  },
+  {
+    id: 'concealed-mep',
+    index: '05',
+    title: 'Concealed VRF & MEP Grid',
+    category: 'Systems',
+    aspect: 'Linear slot diffusers, acoustic piping, PEX plumbing loops, zero ceiling drops.',
+    code: 'ISB-MP-05',
+    videoUrl: '/videos/reels/mep-systems.mp4'
+  },
+  {
+    id: 'wellness-bath',
+    index: '06',
+    title: 'Microtopping Wellness Suite',
+    category: 'Bath',
+    aspect: 'Concealed Grohe thermostatic mixers, frameless fluted glass, monolithic niche.',
+    code: 'ISB-BT-06',
+    videoUrl: '/videos/reels/bathroom.mp4'
+  },
+  {
+    id: 'margalla-patio',
+    index: '07',
+    title: 'Margalla Slate Courtyard',
+    category: 'Outdoor',
+    aspect: 'Honed travertine steps, linear water features, drought-tolerant flora.',
+    code: 'ISB-LD-07',
+    videoUrl: '/videos/reels/landscaping.mp4'
+  },
+  {
+    id: 'monsoon-membrane',
+    index: '08',
+    title: 'Monsoon Membrane Defense',
+    category: 'Exterior',
+    aspect: 'Multi-ply elastomeric roof screed and sub-grade capillary moisture barriers.',
+    code: 'ISB-EX-08',
+    videoUrl: '/videos/reels/exterior-waterproofing.mp4'
+  }
+];
+
+export interface SurfaceBrand {
+  name: string;
+  origin: string;
+  type: string;
+  description: string;
+  badge: string;
+  code: string;
+}
+
+export const SURFACE_BRANDS: SurfaceBrand[] = [
+  {
+    name: 'BOARA',
+    origin: 'Seoul, South Korea',
+    type: '1.06m Jumbo Tactile Vinyl',
+    description: 'Heavy-embossed commercial-grade wall coverings engineered for high humidity resistance and acoustic dampening.',
+    badge: 'Authorized Mill',
+    code: 'KR-BOA-01'
+  },
+  {
+    name: 'BORÅSTAPETER',
+    origin: 'Borås, Sweden',
+    type: 'Scandinavian Heritage Murals',
+    description: 'Breathable FSC-certified non-woven decor prints produced with muted mineral pigments and organic tactile grain.',
+    badge: 'Direct Import',
+    code: 'SE-BOR-02'
+  },
+  {
+    name: 'BLUM & HÄFELE',
+    origin: 'Höchst, Austria / Germany',
+    type: 'Concealed Kinetic Joinery',
+    description: 'Soft-close Blumotion drawer runners, Aventos lift systems, and titanium hinges rated for 200,000 duty cycles.',
+    badge: 'Lifetime Warranty',
+    code: 'DE-BLU-03'
+  },
+  {
+    name: 'GROHE & KOHLER',
+    origin: 'Lahr, Germany / USA',
+    type: 'Concealed Sanitary Architecture',
+    description: 'Thermostatic rough-in valves, PVD scratch-resistant matte fixtures, and pressure-balanced dual manifold circuits.',
+    badge: 'Factory Warranted',
+    code: 'DE-GRO-04'
+  },
+  {
+    name: 'BEYOND FLOOR',
+    origin: 'Germany / Belgium',
+    type: '100% Rigid Core SPC',
+    description: 'Stone plastic composite flooring with integrated IXPE acoustic underlayment, waterproof and termite-impervious.',
+    badge: 'Zero Formaldehyde',
+    code: 'EU-BYN-05'
+  },
+  {
+    name: 'VITRA & KALE',
+    origin: 'Istanbul, Turkey',
+    type: 'Monolithic Porcelain Slabs',
+    description: '120x240cm large-format porcelain slabs with rectified laser-cut joins for seamless, grout-free bathroom elevations.',
+    badge: 'Grade A Porcelain',
+    code: 'TR-VIT-06'
+  }
+];
+
+export interface ProtocolStage {
+  step: string;
+  phase: string;
+  tagline: string;
+  lead: string;
+  deliverables: string[];
+  timing: string;
+}
+
+export const RENOV8_STAGES: ProtocolStage[] = [
+  {
+    step: '01',
+    phase: 'DISCOVER',
+    tagline: 'Listen before drawing.',
+    lead: 'We begin with the property, your priorities, and practical limits around time, budget, and structural integrity.',
+    deliverables: [
+      'Site laser survey & 3D point cloud scan',
+      'CDA / DHA bylaw compliance check',
+      'MEP infrastructure diagnostic audit',
+      'Initial feasibility & investment parameters'
+    ],
+    timing: 'Week 1 — 2'
+  },
+  {
+    step: '02',
+    phase: 'DESIGN',
+    tagline: 'Resolve before building.',
+    lead: 'Layouts, systems, materials, and itemized costs are fully coordinated so the project has one cohesive, buildable direction.',
+    deliverables: [
+      'Complete BIM 3D architectural schematics',
+      'Concealed MEP engineering layouts',
+      'Physical material & sample palette boards',
+      'Guaranteed 100% itemized BOQ contract'
+    ],
+    timing: 'Week 2 — 4'
+  },
+  {
+    step: '03',
+    phase: 'DELIVER',
+    tagline: 'Coordinate the reality.',
+    lead: 'In-house specialists execute under resident engineer supervision with visible milestones and continuous quality checks.',
+    deliverables: [
+      'Full-time on-site resident engineer',
+      'Synchronized trade choreography',
+      'Bi-weekly 4K photographic & drone logs',
+      'Milestone-linked transparent draw schedule'
+    ],
+    timing: 'Execution Phase'
+  },
+  {
+    step: '04',
+    phase: 'HANDOVER',
+    tagline: 'Finish the finish.',
+    lead: 'Testing, commissioning, snagging, and final detailing close the gap between substantial work and a space ready to live in.',
+    deliverables: [
+      '100-point defect liability snag audit',
+      'MEP systems hydrostatic pressure testing',
+      'As-built documentation & operations manual',
+      '12-Month formal workmanship warranty'
+    ],
+    timing: 'Handover & Beyond'
+  }
+];
+
+export interface RemotePillar {
+  index: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  iconName: string;
+}
+
+export const REMOTE_MANAGEMENT_PILLARS: RemotePillar[] = [
+  {
+    index: '01',
+    title: 'Progress Telemetry',
+    subtitle: '4K Drone & Video Logs',
+    description: 'Bi-weekly high-resolution video walkthroughs and drone aerial site records uploaded directly to your private client portal.',
+    iconName: 'Camera'
+  },
+  {
+    index: '02',
+    title: 'Escrow Milestone Draws',
+    subtitle: 'Zero Upfront Risk',
+    description: 'Payments are unlocked strictly upon verified engineering milestone signoffs. You only pay for inspected work completed on site.',
+    iconName: 'ShieldCheck'
+  },
+  {
+    index: '03',
+    title: 'Dedicated Engineering Portal',
+    subtitle: 'Synchronized WhatsApp Lead',
+    description: 'Direct communications channel uniting you with the Lead Architect, Resident Project Engineer, and Procurement Lead.',
+    iconName: 'MessageSquare'
+  },
+  {
+    index: '04',
+    title: 'Municipal Custodianship',
+    subtitle: 'CDA & DHA End-to-End',
+    description: 'Complete regulatory representation: Form A1/A2 submissions, scrutiny fee clearing, and final completion certificate procurement.',
+    iconName: 'FileCheck'
+  }
+];
+
+export interface Renov8FaqItem {
+  id: string;
+  index: string;
+  question: string;
+  answer: string;
+  category: string;
+}
+
+export const RENOV8_FAQS: Renov8FaqItem[] = [
+  {
+    id: 'faq-01',
+    index: '01',
+    category: 'Cost & BOQ',
+    question: 'How does Renov8 calculate renovation pricing and eliminate cost escalations?',
+    answer: 'We work exclusively through fully itemized Bills of Quantities (BOQs) with verified material schedules and unit rates. Before site work commences, every cubic foot of concrete, linear meter of joinery, and sanitary fixture is pre-specified. Milestone payments are tied strictly to completed, inspected work—eliminating surprise contractor inflation.'
+  },
+  {
+    id: 'faq-02',
+    index: '02',
+    category: 'Municipal & Bylaws',
+    question: 'Do you handle CDA and DHA building plan submissions and approvals?',
+    answer: 'Yes. Our in-house engineering and municipal liaison team handles the entire regulatory lifecycle: from setback compliance audits and architectural drawings to Form A1/A2 submissions, scrutiny fee coordination, and final occupancy/completion certificates across CDA sectors and DHA Phases.'
+  },
+  {
+    id: 'faq-03',
+    index: '03',
+    category: 'Single Accountability',
+    question: 'What is the difference between Renov8 turnkey delivery and hiring separate contractors?',
+    answer: 'Traditional projects suffer from fragmented responsibility: the architect blames the contractor, the civil team blames the plumber, and the carpenter blames the painter. Renov8 unites all 14 trades under a single contract with a dedicated on-site resident engineer. One team, one contract, one accountable point of contact.'
+  },
+  {
+    id: 'faq-04',
+    index: '04',
+    category: 'Overseas Clients',
+    question: 'Can homeowners living abroad (UK, USA, Gulf) manage a build through Renov8?',
+    answer: 'Over 40% of our luxury residential projects are executed for overseas Pakistanis. We operate a dedicated Remote Oversight protocol featuring synchronized WhatsApp engineering chats, bi-weekly high-resolution video & drone logs, digital sample approvals, and milestone draw schedules tied to certified progress.'
+  },
+  {
+    id: 'faq-05',
+    index: '05',
+    category: 'Warranty & Care',
+    question: 'What does the 12-Month Workmanship Warranty formally cover?',
+    answer: 'Every completed project is protected by our formal 12-month defect liability guarantee. This covers concealed plumbing leaks, electrical switchgear integrity, cabinetry alignment, joinery hardware, and paint adhesion, backed by scheduled post-handover site inspections.'
+  }
+];
