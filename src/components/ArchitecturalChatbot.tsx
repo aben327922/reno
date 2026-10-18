@@ -474,16 +474,11 @@ export default function ArchitecturalChatbot() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      {/* CHAT WINDOW MODAL */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 25, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 25, scale: 0.95 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="w-[calc(100vw-32px)] sm:w-[460px] h-[640px] max-h-[85vh] bg-[#F6F5F2] border border-black/20 shadow-2xl flex flex-col justify-between overflow-hidden mb-4"
-          >
+      {/* CHAT WINDOW MODAL (Guaranteed Immediate Visibility) */}
+      {isOpen && (
+        <div
+          className="w-[calc(100vw-32px)] sm:w-[460px] h-[640px] max-h-[85vh] bg-[#F6F5F2] border border-black/20 shadow-2xl flex flex-col justify-between overflow-hidden mb-4"
+        >
             {/* Header */}
             <div className="bg-[#141414] text-white p-3.5 sm:p-4 flex items-center justify-between border-b border-white/10">
               <div className="flex items-center gap-3">
@@ -507,26 +502,18 @@ export default function ArchitecturalChatbot() {
                 <button
                   type="button"
                   onClick={resetChat}
-                  onTouchEnd={(e) => {
-                    e.preventDefault();
-                    resetChat();
-                  }}
                   title="Reset Conversation"
                   aria-label="Reset Conversation"
-                  className="p-2 text-white/60 hover:text-white transition-colors cursor-pointer touch-manipulation"
+                  className="p-2 text-white/60 hover:text-white transition-colors cursor-pointer"
                 >
                   <RotateCcw className="w-3.5 h-3.5 pointer-events-none" />
                 </button>
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  onTouchEnd={(e) => {
-                    e.preventDefault();
-                    setIsOpen(false);
-                  }}
                   title="Close Concierge"
                   aria-label="Close Concierge"
-                  className="p-2 text-white/60 hover:text-white transition-colors cursor-pointer touch-manipulation"
+                  className="p-2 text-white/60 hover:text-white transition-colors cursor-pointer"
                 >
                   <X className="w-4 h-4 pointer-events-none" />
                 </button>
@@ -686,10 +673,9 @@ export default function ArchitecturalChatbot() {
               >
                 <Send className="w-3.5 h-3.5" />
               </button>
-            </form>
-          </motion.div>
+              </form>
+            </div>
         )}
-      </AnimatePresence>
 
       {/* FLOATING TRIGGER BUTTON WITH ARCHITECTURAL BADGE */}
       <div className="flex items-center gap-3">
@@ -707,15 +693,10 @@ export default function ArchitecturalChatbot() {
         )}
 
         {/* Primary Floating Action Button with Custom Monogram Icon */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => setIsOpen(!isOpen)}
-          onTouchEnd={(e) => {
-            e.preventDefault();
-            setIsOpen(!isOpen);
-          }}
-          className="relative w-14 h-14 bg-[#141414] hover:bg-[#A8201A] text-white shadow-2xl flex items-center justify-center transition-colors cursor-pointer border border-white/20 touch-manipulation select-none"
+        <button
+          type="button"
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="relative w-14 h-14 bg-[#141414] hover:bg-[#A8201A] text-white shadow-2xl flex items-center justify-center transition-colors cursor-pointer border border-white/20 select-none"
           aria-label="Open Architectural Concierge"
         >
           {isOpen ? (
@@ -738,7 +719,7 @@ export default function ArchitecturalChatbot() {
               <span className="relative inline-flex rounded-full h-3 w-3 bg-[#A8201A]" />
             </span>
           )}
-        </motion.button>
+        </button>
       </div>
     </div>
   );

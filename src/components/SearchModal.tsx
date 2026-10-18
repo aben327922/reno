@@ -173,33 +173,44 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
       {/* Modal Container */}
       <div
+        onClick={(e) => e.stopPropagation()}
         className="relative z-10 w-full max-w-3xl bg-[#141414] border border-white/20 shadow-2xl text-white flex flex-col max-h-[88vh] overflow-hidden"
         onKeyDown={handleKeyDown}
       >
-            {/* Top Search Input Bar */}
-            <div className="p-4 sm:p-5 border-b border-white/10 flex items-center gap-3 bg-[#191919]">
-              <Search className="w-5 h-5 text-[#A8201A] shrink-0" />
-              <input
-                ref={inputRef}
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search services, projects, CDA bylaws, materials, or BOQ rates..."
-                className="w-full bg-transparent text-white text-base sm:text-lg placeholder:text-white/40 focus:outline-none font-light tracking-wide"
-              />
-              {query && (
-                <button
-                  onClick={() => setQuery('')}
-                  aria-label="Clear search"
-                  className="p-1 hover:bg-white/10 text-white/60 hover:text-white rounded transition-colors"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              )}
-              <kbd className="hidden sm:inline-flex items-center px-2 py-1 text-[10px] font-mono uppercase bg-white/10 border border-white/15 text-white/60 rounded">
-                ESC
-              </kbd>
-            </div>
+        {/* Top Search Input Bar */}
+        <div className="p-3.5 sm:p-5 border-b border-white/10 flex items-center gap-2.5 sm:gap-3 bg-[#191919]">
+          <Search className="w-5 h-5 text-[#A8201A] shrink-0 pointer-events-none" />
+          <input
+            ref={inputRef}
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search services, projects, CDA bylaws, materials, or BOQ rates..."
+            className="w-full bg-transparent text-white text-sm sm:text-lg placeholder:text-white/40 focus:outline-none font-light tracking-wide"
+          />
+          {query && (
+            <button
+              type="button"
+              onClick={() => setQuery('')}
+              aria-label="Clear search"
+              className="p-1 hover:bg-white/10 text-white/60 hover:text-white rounded transition-colors cursor-pointer"
+            >
+              <X className="w-4 h-4 pointer-events-none" />
+            </button>
+          )}
+          {/* Mobile Dedicated Close Button */}
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close search modal"
+            className="p-1.5 text-white/70 hover:text-white border border-white/15 bg-white/5 sm:hidden shrink-0 cursor-pointer text-xs font-mono"
+          >
+            <X className="w-4 h-4 text-[#A8201A]" />
+          </button>
+          <kbd className="hidden sm:inline-flex items-center px-2 py-1 text-[10px] font-mono uppercase bg-white/10 border border-white/15 text-white/60 rounded">
+            ESC
+          </kbd>
+        </div>
 
             {/* Filter Tabs */}
             <div className="flex items-center gap-1 sm:gap-2 px-4 py-2.5 border-b border-white/10 bg-[#161616] overflow-x-auto no-scrollbar text-xs">

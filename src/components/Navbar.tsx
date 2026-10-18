@@ -119,11 +119,11 @@ export default function Navbar() {
               type="button"
               onClick={() => setIsSearchOpen(true)}
               aria-label="Search studio archive (Cmd+K)"
-              className="flex items-center gap-1.5 sm:gap-2 text-white/70 hover:text-white px-2.5 sm:px-3 py-1.5 border border-white/15 hover:border-white/40 transition-colors text-xs font-mono group bg-white/[0.03] touch-manipulation cursor-pointer"
+              className="flex items-center justify-center gap-1.5 sm:gap-2 text-white/70 hover:text-white min-w-[42px] h-10 px-2.5 sm:px-3 border border-white/15 hover:border-white/40 transition-colors text-xs font-mono group bg-white/[0.03] cursor-pointer select-none"
             >
-              <Search className="w-3.5 h-3.5 text-[#A8201A] group-hover:scale-110 transition-transform" />
-              <span className="hidden md:inline uppercase tracking-widest text-[10px]">Search</span>
-              <kbd className="hidden lg:inline-flex items-center px-1.5 py-0.5 text-[9px] bg-white/10 text-white/50 border border-white/10 rounded">
+              <Search className="w-3.5 h-3.5 text-[#A8201A] group-hover:scale-110 transition-transform pointer-events-none" />
+              <span className="hidden md:inline uppercase tracking-widest text-[10px] pointer-events-none">Search</span>
+              <kbd className="hidden lg:inline-flex items-center px-1.5 py-0.5 text-[9px] bg-white/10 text-white/50 border border-white/10 rounded pointer-events-none">
                 ⌘K
               </kbd>
             </button>
@@ -141,7 +141,7 @@ export default function Navbar() {
               onClick={() => setIsOpen((prev) => !prev)}
               aria-label={isOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
               aria-expanded={isOpen}
-              className="w-11 h-11 flex items-center justify-center text-white hover:text-[#A8201A] transition-colors focus:outline-none cursor-pointer touch-manipulation select-none"
+              className="w-11 h-11 flex items-center justify-center text-white hover:text-[#A8201A] transition-colors focus:outline-none cursor-pointer select-none"
             >
               {isOpen ? (
                 <X className="w-6 h-6 sm:w-7 sm:h-7 text-white pointer-events-none" />
@@ -150,7 +150,7 @@ export default function Navbar() {
                   {Array.from({ length: 9 }).map((_, i) => (
                     <span
                       key={i}
-                      className="w-[4.5px] h-[4.5px] bg-white rounded-[0.5px] transition-transform duration-300"
+                      className="w-[4.5px] h-[4.5px] bg-white rounded-[0.5px] transition-transform duration-300 pointer-events-none"
                     />
                   ))}
                 </div>

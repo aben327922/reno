@@ -2,12 +2,9 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, ArrowUp, ArrowUpRight, Star, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Star, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <footer className="relative bg-[#141414] text-white pt-20 md:pt-28 pb-14 border-t border-white/10 overflow-hidden">
@@ -294,15 +291,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-      {/* Crimson Square Scroll-To-Top Button on Bottom Right (Positioned above Chatbot) */}
-      <button
-        onClick={scrollToTop}
-        aria-label="Scroll to top"
-        className="fixed bottom-24 right-6 z-40 w-11 h-11 bg-[#A8201A] hover:bg-[#8B1914] text-white flex items-center justify-center shadow-lg transition-colors focus:outline-none cursor-pointer"
-      >
-        <ArrowUp className="w-5 h-5" />
-      </button>
     </footer>
   );
 }
