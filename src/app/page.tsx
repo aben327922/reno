@@ -61,7 +61,7 @@ export default function HomePage() {
 
   return (
     <main className="bg-[#F6F5F2] text-[#141414] overflow-x-hidden">
-      {/* 1. HERO SECTION (Full-viewport monochrome/sepia architectural maquette aesthetic) */}
+      {/* 1. HERO SECTION (Full-viewport architectural maquette aesthetic with real local hero render) */}
       <section className="relative h-screen min-h-[720px] w-full flex items-end overflow-hidden bg-[#141414]">
         {/* Architectural Background with Slow Ken Burns Scale */}
         <motion.div
@@ -70,9 +70,8 @@ export default function HomePage() {
           transition={{ duration: 10, ease: 'easeOut' }}
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=85')",
-            filter: 'sepia(18%) contrast(95%) brightness(68%)',
+            backgroundImage: "url('/images/hero/renov8-home-hero.webp')",
+            filter: 'sepia(14%) contrast(96%) brightness(65%)',
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#141414]/90 via-[#141414]/35 to-transparent" />
@@ -153,7 +152,7 @@ export default function HomePage() {
 
           <div className="lg:col-span-8 space-y-8">
             <p className="text-2xl md:text-4xl font-light leading-[1.3] text-[#141414]">
-              Founded in 2013, <span className="font-medium">RENO</span> is a multidisciplinary
+              Founded in 2013, <span className="font-medium">Renov8</span> is a multidisciplinary
               architecture, renovation and turnkey build studio uniting 14 specialist trades under
               one roof.
             </p>
@@ -280,12 +279,17 @@ export default function HomePage() {
               </div>
 
               <div className="lg:col-span-6">
-                <div className="relative aspect-[16/11] overflow-hidden bg-black">
+                <div className="relative aspect-[16/11] overflow-hidden bg-black group">
                   <img
                     src={activePillar.image}
                     alt={activePillar.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
+                  {activePillar.videoUrl && (
+                    <div className="absolute bottom-4 right-4 bg-[#141414]/90 text-white text-[10px] uppercase font-mono tracking-widest px-3 py-1 backdrop-blur-sm border border-white/10">
+                      Craft in Motion
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -323,7 +327,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Bento Grid */}
+        {/* Bento Grid linking to /work/[id] */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <AnimatePresence>
             {filteredProjects.map((project) => (
@@ -334,38 +338,40 @@ export default function HomePage() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.4 }}
-                className="group cursor-pointer flex flex-col justify-between bg-white border border-black/10 overflow-hidden"
+                className="group flex flex-col justify-between bg-white border border-black/10 overflow-hidden"
               >
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#141414]">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-                  <span className="absolute top-3 left-3 bg-[#141414]/85 backdrop-blur-sm text-white text-[9px] uppercase tracking-[0.2em] px-2.5 py-1">
-                    {project.category}
-                  </span>
-                  <span className="absolute top-3 right-3 font-mono text-xs text-white/80">
-                    /{project.index}
-                  </span>
-                </div>
-
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <div>
-                    <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#A8201A] mb-1">
-                      {project.materialEdit}
-                    </p>
-                    <h3 className="text-lg font-bold uppercase tracking-tight group-hover:text-[#A8201A] transition-colors flex items-center justify-between">
-                      <span>{project.title}</span>
-                      <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </h3>
+                <Link href={`/work/${project.id}`} className="block">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-[#141414]">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+                    <span className="absolute top-3 left-3 bg-[#141414]/85 backdrop-blur-sm text-white text-[9px] uppercase tracking-[0.2em] px-2.5 py-1">
+                      {project.category}
+                    </span>
+                    <span className="absolute top-3 right-3 font-mono text-xs text-white/80">
+                      /{project.index}
+                    </span>
                   </div>
 
-                  <p className="text-xs text-black/65 line-clamp-3 leading-relaxed">
-                    {project.summary}
-                  </p>
-                </div>
+                  <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <div>
+                      <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#A8201A] mb-1">
+                        {project.materialEdit}
+                      </p>
+                      <h3 className="text-lg font-bold uppercase tracking-tight group-hover:text-[#A8201A] transition-colors flex items-center justify-between">
+                        <span>{project.title}</span>
+                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </h3>
+                    </div>
+
+                    <p className="text-xs text-black/65 line-clamp-3 leading-relaxed">
+                      {project.summary}
+                    </p>
+                  </div>
+                </Link>
               </motion.article>
             ))}
           </AnimatePresence>

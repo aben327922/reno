@@ -1,0 +1,396 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="1600" height="1100" fill="none">
+  <defs>
+    <!-- Crosshatch pattern for foundation & wall cut sections -->
+    <pattern id="sketch-hatch" width="12" height="12" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#063b5c" stroke-width="0.8" stroke-opacity="0.18" />
+    </pattern>
+    <!-- Wood slat pattern for modern facade siding -->
+    <pattern id="timber-slats" width="8" height="20" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="8" y2="0" stroke="#063b5c" stroke-width="0.75" stroke-opacity="0.22" />
+    </pattern>
+    <!-- Subtle grid paper texture -->
+    <pattern id="drafting-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#063b5c" stroke-width="0.5" stroke-opacity="0.08" />
+      <circle cx="0" cy="0" r="0.8" fill="#063b5c" fill-opacity="0.15" />
+    </pattern>
+  </defs>
+
+  <!-- BACKGROUND ARCHITECTURAL DRAFTING GRID -->
+  <rect width="100%" height="100%" fill="url(#drafting-grid)" />
+
+  <!-- ============================================================== -->
+  <!-- LEFT SIDE: RESIDENTIAL HOME ELEVATION & FACADE ARCHITECTURAL SKETCH -->
+  <!-- ============================================================== -->
+  <g id="home-elevation" transform="translate(60, 50)">
+    <!-- Architectural Title & Sheet Tag -->
+    <text x="0" y="28" font-family="'Manrope', sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="#063b5c" fill-opacity="0.45">CONCEPT 01 // MODERN RESIDENTIAL ELEVATION</text>
+    <text x="0" y="46" font-family="'DM Sans', sans-serif" font-size="10" font-weight="500" letter-spacing="1.5" fill="#063b5c" fill-opacity="0.32">RENOVATION STUDY • SCALE 1:50 • اسلام آباد</text>
+    <line x1="0" y1="56" x2="520" y2="56" stroke="#063b5c" stroke-width="1.2" stroke-opacity="0.28" />
+
+    <!-- Construction / Projection Guide Lines (Sketch signature overshoot) -->
+    <g stroke="#0082c0" stroke-width="0.75" stroke-opacity="0.18" stroke-dasharray="4,4">
+      <line x1="-30" y1="120" x2="580" y2="120" />
+      <line x1="-30" y1="260" x2="580" y2="260" />
+      <line x1="-30" y1="420" x2="580" y2="420" />
+      <line x1="40" y1="80" x2="40" y2="480" />
+      <line x1="320" y1="80" x2="320" y2="480" />
+      <line x1="500" y1="80" x2="500" y2="480" />
+    </g>
+
+    <!-- GROUND LINE (Heavy sketch base with earth hatching) -->
+    <line x1="-40" y1="420" x2="560" y2="420" stroke="#063b5c" stroke-width="2.5" stroke-opacity="0.38" />
+    <rect x="-40" y="420" width="600" height="24" fill="url(#sketch-hatch)" stroke="#063b5c" stroke-width="0.8" stroke-opacity="0.25" />
+
+    <!-- MAIN HOUSE STRUCTURE (Two-Storey Volume with Cantilever) -->
+    <!-- Ground Floor Main Box -->
+    <rect x="40" y="260" width="460" height="160" fill="#ffffff" fill-opacity="0.65" stroke="#063b5c" stroke-width="2" stroke-opacity="0.35" />
+    
+    <!-- Upper Floor Cantilevered Volume (Modern architectural overhang) -->
+    <rect x="20" y="120" width="340" height="140" fill="#ffffff" fill-opacity="0.75" stroke="#063b5c" stroke-width="2.2" stroke-opacity="0.4" />
+    
+    <!-- Feature Timber Slat Cladding on Upper Box -->
+    <rect x="230" y="125" width="125" height="130" fill="url(#timber-slats)" stroke="#063b5c" stroke-width="1" stroke-opacity="0.28" />
+
+    <!-- PITCHED GABLED ROOF ACCENT (Left wing) -->
+    <polygon points="10,120 180,35 350,120" fill="#ffffff" fill-opacity="0.45" stroke="#063b5c" stroke-width="2" stroke-opacity="0.35" />
+    <!-- Roof fascia & overhang line -->
+    <polyline points="0,126 180,30 360,126" stroke="#063b5c" stroke-width="2.5" stroke-opacity="0.35" />
+    <line x1="180" y1="35" x2="180" y2="120" stroke="#063b5c" stroke-width="0.8" stroke-opacity="0.2" stroke-dasharray="3,3" />
+
+    <!-- Upper Terrace / Flat Roof Balcony (Right wing) -->
+    <rect x="360" y="180" width="140" height="80" fill="#ffffff" fill-opacity="0.45" stroke="#063b5c" stroke-width="1.8" stroke-opacity="0.32" />
+    <!-- Glass & Steel Balcony Railing -->
+    <line x1="360" y1="225" x2="495" y2="225" stroke="#063b5c" stroke-width="1.8" stroke-opacity="0.35" />
+    <g stroke="#063b5c" stroke-width="0.9" stroke-opacity="0.25">
+      <line x1="375" y1="225" x2="375" y2="260" />
+      <line x1="405" y1="225" x2="405" y2="260" />
+      <line x1="435" y1="225" x2="435" y2="260" />
+      <line x1="465" y1="225" x2="465" y2="260" />
+      <line x1="495" y1="225" x2="495" y2="260" />
+    </g>
+
+    <!-- WINDOWS & APERTURES -->
+    <!-- Large Master Suite Window (Upper Floor) -->
+    <rect x="50" y="145" width="150" height="90" fill="#ffffff" fill-opacity="0.85" stroke="#063b5c" stroke-width="1.8" stroke-opacity="0.35" />
+    <rect x="55" y="150" width="68" height="80" stroke="#063b5c" stroke-width="1" stroke-opacity="0.28" />
+    <rect x="127" y="150" width="68" height="80" stroke="#063b5c" stroke-width="1" stroke-opacity="0.28" />
+    <!-- Window Glass Glare Sketch Lines -->
+    <line x1="65" y1="160" x2="105" y2="220" stroke="#0082c0" stroke-width="0.8" stroke-opacity="0.25" />
+    <line x1="75" y1="160" x2="115" y2="220" stroke="#0082c0" stroke-width="0.8" stroke-opacity="0.25" />
+    <line x1="137" y1="160" x2="177" y2="220" stroke="#0082c0" stroke-width="0.8" stroke-opacity="0.25" />
+
+    <!-- Ground Floor Floor-to-Ceiling Panoramic Glazing (Living Room) -->
+    <rect x="60" y="280" width="200" height="140" fill="#ffffff" fill-opacity="0.85" stroke="#063b5c" stroke-width="2" stroke-opacity="0.35" />
+    <line x1="126" y1="280" x2="126" y2="420" stroke="#063b5c" stroke-width="1.2" stroke-opacity="0.3" />
+    <line x1="193" y1="280" x2="193" y2="420" stroke="#063b5c" stroke-width="1.2" stroke-opacity="0.3" />
+    <!-- Glass diagonal reflections -->
+    <line x1="75" y1="295" x2="115" y2="395" stroke="#0082c0" stroke-width="0.8" stroke-opacity="0.25" />
+    <line x1="85" y1="295" x2="125" y2="395" stroke="#0082c0" stroke-width="0.8" stroke-opacity="0.25" />
+    <line x1="145" y1="295" x2="185" y2="395" stroke="#0082c0" stroke-width="0.8" stroke-opacity="0.25" />
+
+    <!-- Modern Front Entrance Door & Portico Canopy -->
+    <rect x="290" y="300" width="55" height="120" stroke="#063b5c" stroke-width="1.8" stroke-opacity="0.35" />
+    <circle cx="335" cy="365" r="3" fill="#063b5c" fill-opacity="0.35" />
+    <!-- Entrance Sidelight Window -->
+    <rect x="350" y="300" width="25" height="120" stroke="#063b5c" stroke-width="1.2" stroke-opacity="0.28" />
+    <!-- Cantilevered Concrete Entrance Canopy -->
+    <polygon points="270,290 395,290 390,300 270,300" fill="#063b5c" fill-opacity="0.12" stroke="#063b5c" stroke-width="1.5" stroke-opacity="0.35" />
+    <!-- Steps to Entrance -->
+    <rect x="270" y="420" width="120" height="7" stroke="#063b5c" stroke-width="1" stroke-opacity="0.3" />
+    <rect x="260" y="427" width="140" height="7" stroke="#063b5c" stroke-width="1" stroke-opacity="0.3" />
+
+    <!-- Garage / Carport Pergola Structure (Right Wing) -->
+    <g id="pergola">
+      <!-- Upright posts -->
+      <line x1="410" y1="280" x2="410" y2="420" stroke="#063b5c" stroke-width="2" stroke-opacity="0.35" />
+      <line x1="495" y1="280" x2="495" y2="420" stroke="#063b5c" stroke-width="2" stroke-opacity="0.35" />
+      <!-- Horizontal beam -->
+      <rect x="395" y="275" width="115" height="12" fill="#063b5c" fill-opacity="0.08" stroke="#063b5c" stroke-width="1.5" stroke-opacity="0.35" />
+      <!-- Rafter tails -->
+      <g stroke="#063b5c" stroke-width="1" stroke-opacity="0.28">
+        <line x1="405" y1="268" x2="415" y2="275" />
+        <line x1="425" y1="268" x2="435" y2="275" />
+        <line x1="445" y1="268" x2="455" y2="275" />
+        <line x1="465" y1="268" x2="475" y2="275" />
+        <line x1="485" y1="268" x2="495" y2="275" />
+      </g>
+    </g>
+
+    <!-- ARCHITECTURAL ELEVATION LEVEL MARKERS -->
+    <g font-family="'Manrope', monospace" font-size="9" font-weight="600" fill="#063b5c" fill-opacity="0.38">
+      <!-- Roof Level -->
+      <path d="M-15,35 L-5,35 L-10,25 Z" fill="#063b5c" fill-opacity="0.35" />
+      <line x1="-10" y1="35" x2="-10" y2="45" stroke="#063b5c" stroke-width="0.8" stroke-opacity="0.3" />
+      <text x="-18" y="22" text-anchor="end">+7.20m ROOF</text>
+
+      <!-- First Floor Level -->
+      <path d="M-15,260 L-5,260 L-10,250 Z" fill="#063b5c" fill-opacity="0.35" />
+      <text x="-18" y="248" text-anchor="end">+3.40m LEVEL 02</text>
+
+      <!-- Ground Floor Level -->
+      <path d="M-15,420 L-5,420 L-10,410 Z" fill="#063b5c" fill-opacity="0.35" />
+      <text x="-18" y="408" text-anchor="end">±0.00m GROUND</text>
+    </g>
+
+    <!-- DIMENSION LINE STRINGS (Below Ground) -->
+    <g stroke="#063b5c" stroke-width="0.8" stroke-opacity="0.3" font-family="'Manrope', monospace" font-size="8.5" fill="#063b5c" fill-opacity="0.35" text-anchor="middle">
+      <line x1="40" y1="460" x2="500" y2="460" />
+      <!-- Dimension tick marks (Architectural slash ticks) -->
+      <line x1="36" y1="465" x2="44" y2="455" stroke-width="1.5" stroke-opacity="0.45" />
+      <line x1="266" y1="465" x2="274" y2="455" stroke-width="1.5" stroke-opacity="0.45" />
+      <line x1="396" y1="465" x2="404" y2="455" stroke-width="1.5" stroke-opacity="0.45" />
+      <line x1="496" y1="465" x2="504" y2="455" stroke-width="1.5" stroke-opacity="0.45" />
+
+      <!-- Extension lines -->
+      <line x1="40" y1="425" x2="40" y2="470" stroke-dasharray="2,2" />
+      <line x1="270" y1="425" x2="270" y2="470" stroke-dasharray="2,2" />
+      <line x1="400" y1="425" x2="400" y2="470" stroke-dasharray="2,2" />
+      <line x1="500" y1="425" x2="500" y2="470" stroke-dasharray="2,2" />
+
+      <text x="155" y="455">6,400 LIVING</text>
+      <text x="335" y="455">3,200 ENTRY</text>
+      <text x="450" y="455">2,800 CARPORT</text>
+    </g>
+
+    <!-- ARCHITECTURAL SKETCH TREE (Flanking left) -->
+    <g id="sketch-tree" transform="translate(10, 310)" stroke="#063b5c" stroke-width="1" stroke-opacity="0.25">
+      <!-- Trunk -->
+      <path d="M0,110 Q-5,60 0,0" fill="none" stroke-width="1.8" />
+      <path d="M0,70 Q-15,45 -25,35" fill="none" />
+      <path d="M0,50 Q12,30 22,20" fill="none" />
+      <!-- Canopy loose cloud strokes -->
+      <path d="M-35,20 C-45,-10 -25,-40 0,-45 C25,-50 45,-25 35,5 C40,25 15,45 -10,35 Z" fill="none" stroke-width="1.2" stroke-opacity="0.28" />
+      <path d="M-20,10 C-30,-15 -10,-35 10,-35 C25,-35 30,-10 20,10 Z" fill="none" stroke-dasharray="3,3" stroke-opacity="0.2" />
+    </g>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- RIGHT SIDE: RESIDENTIAL FLOOR PLAN & ROOM LAYOUT BLUEPRINT SKETCH -->
+  <!-- ============================================================== -->
+  <g id="home-floorplan" transform="translate(1040, 50)">
+    <!-- Architectural Title & Sheet Tag -->
+    <text x="0" y="28" font-family="'Manrope', sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="#063b5c" fill-opacity="0.45">LAYOUT 02 // PROPOSED GROUND FLOOR</text>
+    <text x="0" y="46" font-family="'DM Sans', sans-serif" font-size="10" font-weight="500" letter-spacing="1.5" fill="#063b5c" fill-opacity="0.32">INTERIOR SPACE PLANNING • TURNKEY RECONFIG</text>
+    <line x1="0" y1="56" x2="500" y2="56" stroke="#063b5c" stroke-width="1.2" stroke-opacity="0.28" />
+
+    <!-- EXTERIOR WALLS (Double heavy line architectural standard) -->
+    <g stroke="#063b5c" stroke-width="2.5" stroke-opacity="0.38" fill="#ffffff" fill-opacity="0.6">
+      <!-- Outer perimeter footprint -->
+      <polygon points="20,100 480,100 480,440 280,440 280,470 20,470" />
+    </g>
+    <polygon points="28,108 472,108 472,432 288,432 288,462 28,462" stroke="#063b5c" stroke-width="1" stroke-opacity="0.25" fill="none" />
+
+    <!-- INTERIOR PARTITION WALLS -->
+    <g stroke="#063b5c" stroke-width="2" stroke-opacity="0.32">
+      <!-- Living / Kitchen divider (semi open-plan) -->
+      <line x1="28" y1="260" x2="220" y2="260" />
+      <line x1="28" y1="266" x2="220" y2="266" />
+
+      <!-- Hallway / Master bedroom zone -->
+      <line x1="300" y1="108" x2="300" y2="330" />
+      <line x1="306" y1="108" x2="306" y2="330" />
+
+      <!-- Ensuite / Bath enclosure -->
+      <line x1="306" y1="230" x2="472" y2="230" />
+      <line x1="306" y1="236" x2="472" y2="236" />
+    </g>
+
+    <!-- ARCHITECTURAL DOOR SWINGS (Door leaf + 90 degree dotted arc) -->
+    <!-- Front Entry Door -->
+    <g id="front-door" transform="translate(180, 462)">
+      <line x1="0" y1="0" x2="0" y2="-42" stroke="#063b5c" stroke-width="1.8" stroke-opacity="0.38" />
+      <path d="M0,-42 A42,42 0 0,1 42,0" fill="none" stroke="#0082c0" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="3,3" />
+      <circle cx="0" cy="0" r="2.5" fill="#063b5c" fill-opacity="0.4" />
+    </g>
+    <!-- Master Suite Door -->
+    <g id="master-door" transform="translate(306, 280)">
+      <line x1="0" y1="0" x2="38" y2="0" stroke="#063b5c" stroke-width="1.8" stroke-opacity="0.38" />
+      <path d="M38,0 A38,38 0 0,1 0,38" fill="none" stroke="#0082c0" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="3,3" />
+    </g>
+    <!-- Bathroom Door -->
+    <g id="bath-door" transform="translate(350, 236)">
+      <line x1="0" y1="0" x2="0" y2="34" stroke="#063b5c" stroke-width="1.8" stroke-opacity="0.38" />
+      <path d="M0,34 A34,34 0 0,1 34,0" fill="none" stroke="#0082c0" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="3,3" />
+    </g>
+
+    <!-- WINDOW OPENINGS IN WALLS (Drawn with architectural sill + double glass line) -->
+    <g stroke="#0082c0" stroke-width="1.2" stroke-opacity="0.35">
+      <!-- Front bay window -->
+      <line x1="45" y1="470" x2="135" y2="470" stroke="#ffffff" stroke-width="6" />
+      <line x1="45" y1="468" x2="135" y2="468" />
+      <line x1="45" y1="472" x2="135" y2="472" />
+
+      <!-- Side living window -->
+      <line x1="20" y1="140" x2="20" y2="220" stroke="#ffffff" stroke-width="6" />
+      <line x1="18" y1="140" x2="18" y2="220" />
+      <line x1="22" y1="140" x2="22" y2="220" />
+
+      <!-- Rear garden sliders -->
+      <line x1="80" y1="100" x2="220" y2="100" stroke="#ffffff" stroke-width="6" />
+      <line x1="80" y1="98" x2="220" y2="98" />
+      <line x1="80" y1="102" x2="220" y2="102" />
+
+      <!-- Master bedroom window -->
+      <line x1="340" y1="100" x2="440" y2="100" stroke="#ffffff" stroke-width="6" />
+      <line x1="340" y1="98" x2="440" y2="98" />
+      <line x1="340" y1="102" x2="440" y2="102" />
+    </g>
+
+    <!-- INTERIOR FURNITURE & LAYOUT SKETCHES (Giving it that authentic home feel) -->
+    <!-- Open Plan Kitchen Island & Countertop -->
+    <g id="kitchen-sketch" transform="translate(50, 130)">
+      <!-- Main counter L-shape -->
+      <polyline points="0,0 120,0 120,50" fill="none" stroke="#063b5c" stroke-width="1.2" stroke-opacity="0.28" />
+      <!-- Kitchen Sink with double bowl -->
+      <rect x="25" y="8" width="40" height="22" rx="2" stroke="#063b5c" stroke-width="1" stroke-opacity="0.25" />
+      <line x1="45" y1="8" x2="45" y2="30" stroke="#063b5c" stroke-width="0.8" stroke-opacity="0.2" />
+      <!-- Central Island -->
+      <rect x="35" y="65" width="90" height="42" rx="3" fill="#ffffff" fill-opacity="0.7" stroke="#063b5c" stroke-width="1.4" stroke-opacity="0.32" />
+      <!-- Barstools -->
+      <circle cx="55" cy="118" r="8" stroke="#063b5c" stroke-width="0.9" stroke-opacity="0.22" />
+      <circle cx="80" cy="118" r="8" stroke="#063b5c" stroke-width="0.9" stroke-opacity="0.22" />
+      <circle cx="105" cy="118" r="8" stroke="#063b5c" stroke-width="0.9" stroke-opacity="0.22" />
+    </g>
+
+    <!-- Living Room Sofa & Coffee Table Sketch -->
+    <g id="living-furniture" transform="translate(55, 310)">
+      <!-- L-shaped sectional couch -->
+      <path d="M0,0 L115,0 L115,40 L35,40 L35,95 L0,95 Z" fill="#ffffff" fill-opacity="0.6" stroke="#063b5c" stroke-width="1.2" stroke-opacity="0.28" />
+      <!-- Coffee Table -->
+      <rect x="48" y="52" width="55" height="32" rx="3" stroke="#063b5c" stroke-width="1" stroke-opacity="0.25" />
+      <!-- Rug outline -->
+      <rect x="25" y="20" width="125" height="95" stroke="#063b5c" stroke-width="0.75" stroke-opacity="0.18" stroke-dasharray="4,3" />
+    </g>
+
+    <!-- Master Suite Bed & Nightstands -->
+    <g id="bedroom-furniture" transform="translate(345, 125)">
+      <!-- King Bed with Pillows -->
+      <rect x="18" y="0" width="85" height="95" rx="3" fill="#ffffff" fill-opacity="0.7" stroke="#063b5c" stroke-width="1.4" stroke-opacity="0.32" />
+      <line x1="18" y1="28" x2="103" y2="28" stroke="#063b5c" stroke-width="0.9" stroke-opacity="0.22" />
+      <!-- Pillows -->
+      <rect x="26" y="6" width="30" height="18" rx="2" stroke="#063b5c" stroke-width="0.9" stroke-opacity="0.25" />
+      <rect x="65" y="6" width="30" height="18" rx="2" stroke="#063b5c" stroke-width="0.9" stroke-opacity="0.25" />
+      <!-- Nightstands -->
+      <rect x="0" y="5" width="14" height="20" rx="1" stroke="#063b5c" stroke-width="0.9" stroke-opacity="0.22" />
+      <rect x="107" y="5" width="14" height="20" rx="1" stroke="#063b5c" stroke-width="0.9" stroke-opacity="0.22" />
+    </g>
+
+    <!-- Bathroom Fixtures (Tub, Vanity, WC) -->
+    <g id="bathroom-fixtures" transform="translate(325, 255)">
+      <!-- Vanity Sink -->
+      <rect x="0" y="0" width="45" height="25" rx="2" stroke="#063b5c" stroke-width="1" stroke-opacity="0.25" />
+      <ellipse cx="22" cy="12" rx="12" ry="7" stroke="#063b5c" stroke-width="0.8" stroke-opacity="0.22" />
+      <!-- Walk-in Rain Shower -->
+      <rect x="75" y="0" width="65" height="60" stroke="#063b5c" stroke-width="1.2" stroke-opacity="0.28" />
+      <line x1="75" y1="0" x2="140" y2="60" stroke="#0082c0" stroke-width="0.75" stroke-opacity="0.2" />
+      <circle cx="107" cy="30" r="5" stroke="#063b5c" stroke-width="0.8" stroke-opacity="0.25" />
+    </g>
+
+    <!-- ROOM LABELS & SIZES (Architectural Technical Drafting Style) -->
+    <g font-family="'Manrope', sans-serif" text-anchor="middle" fill="#063b5c">
+      <!-- Living & Dining -->
+      <text x="125" y="425" font-size="10" font-weight="700" letter-spacing="2" fill-opacity="0.45">OPEN LIVING / LOUNGE</text>
+      <text x="125" y="440" font-size="8" font-weight="500" letter-spacing="1" fill-opacity="0.32">5.40m × 4.60m • CH +3.10</text>
+
+      <!-- Kitchen -->
+      <text x="110" y="240" font-size="9.5" font-weight="700" letter-spacing="2" fill-opacity="0.45">KITCHEN &amp; DINING</text>
+      <text x="110" y="253" font-size="8" font-weight="500" letter-spacing="1" fill-opacity="0.32">4.20m × 3.80m</text>
+
+      <!-- Master Bedroom -->
+      <text x="390" y="215" font-size="10" font-weight="700" letter-spacing="2" fill-opacity="0.45">MASTER SUITE</text>
+      <text x="390" y="228" font-size="8" font-weight="500" letter-spacing="1" fill-opacity="0.32">4.80m × 4.20m</text>
+
+      <!-- Ensuite -->
+      <text x="390" y="315" font-size="8.5" font-weight="700" letter-spacing="1.5" fill-opacity="0.4">ENSUITE BATH</text>
+
+      <!-- Entry / Foyer -->
+      <text x="235" y="445" font-size="9" font-weight="700" letter-spacing="1.5" fill-opacity="0.4">FOYER</text>
+    </g>
+
+    <!-- STAIRCASE SKETCH (Going Up with arrow) -->
+    <g id="stairs" transform="translate(235, 275)" stroke="#063b5c" stroke-width="0.9" stroke-opacity="0.25">
+      <rect x="0" y="0" width="55" height="135" stroke-width="1.2" stroke-opacity="0.32" />
+      <!-- Treads -->
+      <line x1="0" y1="15" x2="55" y2="15" />
+      <line x1="0" y1="30" x2="55" y2="30" />
+      <line x1="0" y1="45" x2="55" y2="45" />
+      <line x1="0" y1="60" x2="55" y2="60" />
+      <line x1="0" y1="75" x2="55" y2="75" />
+      <line x1="0" y1="90" x2="55" y2="90" />
+      <line x1="0" y1="105" x2="55" y2="105" />
+      <line x1="0" y1="120" x2="55" y2="120" />
+      <!-- Direction arrow -->
+      <line x1="28" y1="125" x2="28" y2="18" stroke="#0082c0" stroke-width="1.2" stroke-opacity="0.4" />
+      <polyline points="22,26 28,15 34,26" fill="none" stroke="#0082c0" stroke-width="1.2" stroke-opacity="0.4" />
+      <text x="28" y="132" font-family="'Manrope', sans-serif" font-size="7.5" font-weight="700" fill="#0082c0" fill-opacity="0.45" text-anchor="middle" stroke="none">UP</text>
+    </g>
+
+    <!-- NORTH ARROW / AZIMUTH -->
+    <g id="north-arrow" transform="translate(440, 485)" stroke="#063b5c" stroke-width="1" stroke-opacity="0.32">
+      <circle cx="0" cy="0" r="18" fill="none" stroke-opacity="0.2" />
+      <polygon points="0,-14 3,0 0,-2 -3,0" fill="#063b5c" fill-opacity="0.35" stroke="none" />
+      <polygon points="0,14 3,0 0,2 -3,0" fill="#063b5c" fill-opacity="0.12" stroke="none" />
+      <text x="-3.5" y="-18" font-family="'Manrope', sans-serif" font-size="8" font-weight="700" fill="#063b5c" fill-opacity="0.45" stroke="none">N</text>
+    </g>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- CENTER LOWER ACCENTS: AXONOMETRIC HOME VOLUME & PERSPECTIVE SKETCHES -->
+  <!-- ============================================================== -->
+  <g id="axonometric-home" transform="translate(620, 600)">
+    <!-- Axonometric 3D Wireframe Home Cube -->
+    <!-- Base footprint -->
+    <g stroke="#063b5c" stroke-width="1.2" stroke-opacity="0.28" fill="none">
+      <!-- Ground plane lines -->
+      <line x1="0" y1="180" x2="180" y2="260" />
+      <line x1="180" y1="260" x2="360" y2="180" />
+      <line x1="360" y1="180" x2="180" y2="100" />
+      <line x1="180" y1="100" x2="0" y2="180" />
+
+      <!-- Vertical Corner Uprights -->
+      <line x1="0" y1="180" x2="0" y2="60" stroke-width="1.8" stroke-opacity="0.35" />
+      <line x1="180" y1="260" x2="180" y2="140" stroke-width="2.2" stroke-opacity="0.4" />
+      <line x1="360" y1="180" x2="360" y2="60" stroke-width="1.8" stroke-opacity="0.35" />
+      <line x1="180" y1="100" x2="180" y2="-20" stroke-dasharray="3,3" stroke-opacity="0.2" />
+
+      <!-- Upper Roof Line -->
+      <line x1="0" y1="60" x2="180" y2="140" stroke-width="1.8" stroke-opacity="0.35" />
+      <line x1="180" y1="140" x2="360" y2="60" stroke-width="1.8" stroke-opacity="0.35" />
+      <line x1="360" y1="60" x2="180" y2="-20" stroke-dasharray="3,3" stroke-opacity="0.2" />
+      <line x1="180" y1="-20" x2="0" y2="60" stroke-dasharray="3,3" stroke-opacity="0.2" />
+
+      <!-- Pitched Roof Crest in 3D -->
+      <line x1="90" y1="-30" x2="270" y2="-30" stroke-width="2" stroke-opacity="0.35" />
+      <line x1="0" y1="60" x2="90" y2="-30" stroke-width="1.8" stroke-opacity="0.35" />
+      <line x1="180" y1="140" x2="90" y2="-30" stroke-width="1.8" stroke-opacity="0.35" />
+      <line x1="180" y1="140" x2="270" y2="-30" stroke-width="1.8" stroke-opacity="0.35" />
+      <line x1="360" y1="60" x2="270" y2="-30" stroke-width="1.8" stroke-opacity="0.35" />
+
+      <!-- 3D Window Inset on Left Face -->
+      <polygon points="30,150 140,200 140,165 30,115" fill="#ffffff" fill-opacity="0.5" stroke="#0082c0" stroke-width="1" stroke-opacity="0.32" />
+      <line x1="85" y1="175" x2="85" y2="140" stroke="#0082c0" stroke-width="0.8" stroke-opacity="0.28" />
+
+      <!-- 3D Door Inset on Right Face -->
+      <polygon points="220,225 280,198 280,135 220,162" fill="#063b5c" fill-opacity="0.08" stroke="#063b5c" stroke-width="1.2" stroke-opacity="0.32" />
+    </g>
+
+    <text x="180" y="300" font-family="'Manrope', sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#063b5c" fill-opacity="0.4" text-anchor="middle">3D MASSING STUDY • AXONOMETRIC VOLUME</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- SUBTLE PERIPHERAL DETAILS: RENOVATION TECHNICAL SKETCH STAMPS -->
+  <!-- ============================================================== -->
+  <g id="technical-notes" font-family="'Manrope', monospace" font-size="8" fill="#063b5c" fill-opacity="0.3" letter-spacing="1.5">
+    <!-- Center Top Stamp -->
+    <text x="800" y="42" text-anchor="middle">RENOV8 ARCHITECTURE &amp; INTERIOR FIT-OUT • ISLAMABAD</text>
+    <text x="800" y="56" text-anchor="middle">PROJECT SPECIFICATION SHEET // PLANNING PHASE</text>
+
+    <!-- Bottom Left Spec Stamp -->
+    <text x="60" y="1020">MATERIAL NOTE: REINFORCED CONCRETE FRAME • ALUMINIUM COMPOSITE FINS</text>
+    <text x="60" y="1035">DOUBLE GLAZED THERMALLY BROKEN GLASS UNITS • PORCELAIN EXTERIOR TILE</text>
+
+    <!-- Bottom Right Spec Stamp -->
+    <text x="1540" y="1020" text-anchor="end">CAD DRAWING REF: RN8-PLN-2026-08 • CHECKED: LEAD ARCHITECT</text>
+    <text x="1540" y="1035" text-anchor="end">STATUS: ISSUED FOR CONCEPT PLANNING • ALL DIMENSIONS IN MM</text>
+  </g>
+</svg>

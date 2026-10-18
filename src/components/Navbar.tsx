@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { label: 'Home', href: '/', index: '01' },
   { label: 'Services', href: '/services', index: '02' },
   { label: 'Our Work', href: '/work', index: '03' },
-  { label: 'RENO / Cost Planner', href: '/planner', index: '04' },
+  { label: 'R8 / Cost Planner', href: '/planner', index: '04' },
   { label: 'Studio', href: '/studio', index: '05' },
   { label: 'Publications & Guides', href: '/publications', index: '06' },
   { label: "Let's Connect", href: '/contact', index: '07' },
@@ -41,11 +41,11 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between">
-          {/* Exact Dual-Tone Serif Lockup + Vertical Divider + 3-Line Subtitle */}
+          {/* Exact Dual-Tone Serif Lockup for RENOV8 + Vertical Divider + 3-Line Subtitle */}
           <Link href="/" className="flex items-center gap-4 group">
             <div className="text-3xl md:text-4xl font-serif tracking-tighter leading-none select-none">
-              <span className="text-[#A8201A] font-normal">RE</span>
-              <span className="text-white font-normal">NO</span>
+              <span className="text-[#A8201A] font-normal">RENOV</span>
+              <span className="text-white font-normal">8</span>
             </div>
             <div className="h-8 w-[1px] bg-white/25" />
             <div className="flex flex-col text-[9px] md:text-[10px] tracking-[0.26em] text-white/80 font-light leading-[1.35] uppercase">

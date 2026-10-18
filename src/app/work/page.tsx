@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Search } from 'lucide-react';
 import { RENO_PROJECTS } from '@/data/renoData';
@@ -36,7 +37,7 @@ export default function WorkPage() {
             OUR WORK
           </h1>
           <p className="text-lg md:text-xl text-black/70 font-light leading-relaxed">
-            Exploring how RENO brings structure, materiality (Stone · Oak · Steel) and daily living
+            Exploring how RENOV8 brings structure, materiality (Stone · Oak · Steel) and daily living
             into one cohesive architectural vision across Islamabad.
           </p>
         </div>
@@ -81,41 +82,43 @@ export default function WorkPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                className="group bg-white border border-black/10 overflow-hidden flex flex-col justify-between"
+                className="group bg-white border border-black/10 overflow-hidden"
               >
-                <div className="relative aspect-[16/10] overflow-hidden bg-black">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <span className="absolute bottom-4 left-4 bg-[#141414] text-white text-[10px] uppercase tracking-[0.22em] px-3 py-1">
-                    {project.category}
-                  </span>
-                  <span className="absolute top-4 right-4 bg-[#141414]/80 text-white font-mono text-xs px-2.5 py-1">
-                    /{project.index}
-                  </span>
-                </div>
-
-                <div className="p-8 space-y-4">
-                  <div className="flex items-center justify-between text-xs font-mono uppercase tracking-[0.2em] text-[#A8201A]">
-                    <span>{project.materialEdit}</span>
-                    <span className="text-black/50">{project.year}</span>
+                <Link href={`/work/${project.id}`} className="block h-full">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-black">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <span className="absolute bottom-4 left-4 bg-[#141414] text-white text-[10px] uppercase tracking-[0.22em] px-3 py-1">
+                      {project.category}
+                    </span>
+                    <span className="absolute top-4 right-4 bg-[#141414]/80 text-white font-mono text-xs px-2.5 py-1">
+                      /{project.index}
+                    </span>
                   </div>
 
-                  <h2 className="text-2xl font-bold uppercase tracking-tight flex items-center justify-between group-hover:text-[#A8201A] transition-colors">
-                    <span>{project.title}</span>
-                    <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </h2>
+                  <div className="p-8 space-y-4">
+                    <div className="flex items-center justify-between text-xs font-mono uppercase tracking-[0.2em] text-[#A8201A]">
+                      <span>{project.materialEdit}</span>
+                      <span className="text-black/50">{project.year}</span>
+                    </div>
 
-                  <p className="text-xs uppercase tracking-wider text-black/50">
-                    {project.location}
-                  </p>
+                    <h2 className="text-2xl font-bold uppercase tracking-tight flex items-center justify-between group-hover:text-[#A8201A] transition-colors">
+                      <span>{project.title}</span>
+                      <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </h2>
 
-                  <p className="text-sm text-black/70 leading-relaxed pt-2 border-t border-black/10">
-                    {project.summary}
-                  </p>
-                </div>
+                    <p className="text-xs uppercase tracking-wider text-black/50">
+                      {project.location}
+                    </p>
+
+                    <p className="text-sm text-black/70 leading-relaxed pt-2 border-t border-black/10">
+                      {project.summary}
+                    </p>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </AnimatePresence>

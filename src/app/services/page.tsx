@@ -142,7 +142,7 @@ export default function ServicesPage() {
                             </ul>
                             <div className="pt-4 flex flex-wrap gap-4">
                               <a
-                                href={`https://wa.me/923335251768?text=Hi%20RENO,%20I%20would%20like%20to%20request%20an%20itemized%20BOQ%20for%20${encodeURIComponent(
+                                href={`https://wa.me/923335251768?text=Hi%20Renov8,%20I%20would%20like%20to%20request%20an%20itemized%20BOQ%20for%20${encodeURIComponent(
                                   service.title
                                 )}`}
                                 target="_blank"

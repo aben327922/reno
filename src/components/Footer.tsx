@@ -17,8 +17,8 @@ export default function Footer() {
           <div className="lg:col-span-5 space-y-8">
             <Link href="/" className="flex items-center gap-4">
               <div className="text-4xl font-serif tracking-tighter leading-none">
-                <span className="text-[#A8201A]">RE</span>
-                <span className="text-white">NO</span>
+                <span className="text-[#A8201A]">RENOV</span>
+                <span className="text-white">8</span>
               </div>
               <div className="h-8 w-[1px] bg-white/25" />
               <div className="flex flex-col text-[9px] tracking-[0.26em] text-white/75 uppercase leading-[1.35]">
@@ -29,7 +29,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm md:text-base text-white/80 leading-relaxed max-w-md font-light">
-              RENO, Design spaces where form meets function, context informs design, and every
+              RENOV8, Design spaces where form meets function, context informs design, and every
               project resonates with people and place to create meaningful experiences.
             </p>
 
@@ -55,7 +55,7 @@ export default function Footer() {
                 { label: 'Home', href: '/' },
                 { label: 'Services', href: '/services' },
                 { label: 'Our Work', href: '/work' },
-                { label: 'RENO / Cost Planner', href: '/planner' },
+                { label: 'R8 / Cost Planner', href: '/planner' },
                 { label: 'Studio', href: '/studio' },
                 { label: 'Publications & Guides', href: '/publications' },
                 { label: "Let's Connect", href: '/contact' },
@@ -143,7 +143,7 @@ export default function Footer() {
 
         {/* Bottom Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-white/45 gap-4">
-          <p>© 2026 RENO Architecture &amp; Renovation Syndicate, All Rights Reserved.</p>
+          <p>© 2026 Renov8 Architecture &amp; Renovation Syndicate, All Rights Reserved.</p>
           <p className="uppercase tracking-[0.2em] text-[11px]">
             Stone · Oak · Steel — Islamabad, Pakistan
           </p>

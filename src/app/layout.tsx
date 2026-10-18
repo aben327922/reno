@@ -25,9 +25,9 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: 'RENO | Architecture & Renovation Syndicate',
+  title: 'Renov8 | Architecture & Renovation Syndicate',
   description:
-    'RENO (Alvie & Rao Architecture & Renovation Syndicate) is a multidisciplinary design-build studio crafting enduring spaces across Islamabad, Pakistan. 14 in-house specialist divisions under one accountable standard.',
+    'Renov8 (Architecture & Renovation Syndicate) is a multidisciplinary design-build studio crafting enduring spaces across Islamabad, Pakistan. 14 in-house specialist divisions under one accountable standard.',
 };
 
 export default function RootLayout({
