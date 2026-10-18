@@ -109,11 +109,11 @@ export default function HomePage() {
     <main className="bg-[#F6F5F2] text-[#141414] overflow-x-hidden">
       {/* 1. HERO SECTION (Full-viewport with smooth photo fade and 3 background video cards) */}
       <section className="relative h-screen min-h-[720px] w-full flex items-end overflow-hidden bg-[#141414]">
-        {/* Layer 1: Initial Architectural Photo that dissolves smoothly */}
+        {/* Layer 1: Initial Architectural Photo that dissolves slowly and smoothly */}
         <motion.div
           initial={{ opacity: 1, scale: 1.04 }}
-          animate={{ opacity: 0, scale: 1 }}
-          transition={{ duration: 2.0, delay: 0.8, ease: 'easeInOut' }}
+          animate={{ opacity: 0, scale: 1.01 }}
+          transition={{ duration: 3.2, delay: 1.4, ease: [0.25, 0.1, 0.25, 1] }}
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
             backgroundImage: "url('/images/hero/renov8-home-hero.webp')",
@@ -121,56 +121,83 @@ export default function HomePage() {
           }}
         />
 
-        {/* Layer 2: 3 Architectural Video Cards in the Background (1 down, 1 up, 1 down) */}
+        {/* Layer 2: 3 Architectural Video Cards in the Background (slow, buttery staggered glide) */}
         <div className="absolute inset-0 z-[1] overflow-hidden flex items-center justify-center pointer-events-none p-4 md:p-8 lg:p-12">
           <div className="w-full h-full max-w-[1560px] mx-auto grid grid-cols-3 gap-3 md:gap-6 lg:gap-8 items-stretch py-6 md:py-10">
             {/* Background Card 1: Coming DOWN from top */}
             <motion.div
-              initial={{ y: -160, opacity: 0 }}
+              initial={{ y: -120, opacity: 0 }}
               animate={{ y: 24, opacity: 1 }}
-              transition={{ duration: 1.4, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 2.6, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
               className="relative h-full w-full overflow-hidden border border-white/20 bg-black/50 shadow-2xl"
             >
               <video
+                ref={(el) => {
+                  if (el) el.playbackRate = 0.65;
+                }}
                 src="/videos/services/home-reno-remodeling/home-reno-remodeling-1.mp4"
                 autoPlay
                 loop
                 playsInline
                 muted
+                onLoadedMetadata={(e) => {
+                  e.currentTarget.playbackRate = 0.65;
+                }}
+                onPlay={(e) => {
+                  e.currentTarget.playbackRate = 0.65;
+                }}
                 className="w-full h-full object-cover"
               />
             </motion.div>
 
             {/* Background Card 2: Going UP from bottom */}
             <motion.div
-              initial={{ y: 160, opacity: 0 }}
+              initial={{ y: 120, opacity: 0 }}
               animate={{ y: -24, opacity: 1 }}
-              transition={{ duration: 1.4, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 2.6, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
               className="relative h-full w-full overflow-hidden border border-white/25 bg-black/50 shadow-2xl"
             >
               <video
+                ref={(el) => {
+                  if (el) el.playbackRate = 0.65;
+                }}
                 src="/videos/services/interior-space-planning/interior-space-2.mp4"
                 autoPlay
                 loop
                 playsInline
                 muted
+                onLoadedMetadata={(e) => {
+                  e.currentTarget.playbackRate = 0.65;
+                }}
+                onPlay={(e) => {
+                  e.currentTarget.playbackRate = 0.65;
+                }}
                 className="w-full h-full object-cover"
               />
             </motion.div>
 
             {/* Background Card 3: Coming DOWN from top */}
             <motion.div
-              initial={{ y: -160, opacity: 0 }}
+              initial={{ y: -120, opacity: 0 }}
               animate={{ y: 24, opacity: 1 }}
-              transition={{ duration: 1.4, delay: 1.4, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 2.6, delay: 2.6, ease: [0.16, 1, 0.3, 1] }}
               className="relative h-full w-full overflow-hidden border border-white/20 bg-black/50 shadow-2xl"
             >
               <video
+                ref={(el) => {
+                  if (el) el.playbackRate = 0.65;
+                }}
                 src="/videos/services/cabinet-works/cabinet-joinery-1.mp4"
                 autoPlay
                 loop
                 playsInline
                 muted
+                onLoadedMetadata={(e) => {
+                  e.currentTarget.playbackRate = 0.65;
+                }}
+                onPlay={(e) => {
+                  e.currentTarget.playbackRate = 0.65;
+                }}
                 className="w-full h-full object-cover"
               />
             </motion.div>
