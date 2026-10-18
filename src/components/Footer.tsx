@@ -55,6 +55,7 @@ export default function Footer() {
                 { label: 'Home', href: '/' },
                 { label: 'Services', href: '/services' },
                 { label: 'Our Work', href: '/work' },
+                { label: 'Client Experiences', href: '/#client-experiences' },
                 { label: 'R8 / Cost Planner', href: '/planner' },
                 { label: 'Studio', href: '/studio' },
                 { label: 'Publications & Guides', href: '/publications' },
@@ -69,6 +70,18 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="https://share.google/rxzJz24oNNs7Gnnw8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-google-profile
+                  className="hover:text-white hover:translate-x-1 inline-flex items-center gap-1.5 transition-all text-[#EA4335]/90 hover:text-white"
+                >
+                  <span>Google Business Profile</span>
+                  <span className="text-xs">↗</span>
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -80,6 +93,16 @@ export default function Footer() {
               <p className="text-white/75 leading-relaxed">
                 Blue Area, Islamabad · Pakistan (33.7272° N · 73.0877° E)
               </p>
+              <a
+                href="https://share.google/rxzJz24oNNs7Gnnw8"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-google-profile
+                className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+              >
+                <span className="w-2 h-2 rounded-full bg-[#34A853]" />
+                <span>Google Business Profile (5.0 ★★★★★) ↗</span>
+              </a>
               <a
                 href="https://wa.me/923335251768"
                 target="_blank"

@@ -31,6 +31,7 @@ import {
   JOURNAL_ARTICLES,
   ReelConcept,
 } from '@/data/renoData';
+import ClientExperiences from '@/components/ClientExperiences';
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement | null>(null);
@@ -183,12 +184,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. WHO WE ARE SECTION ("ONE TEAM. EVERY DETAIL.") */}
+      {/* 2. GOOGLE BUSINESS PROFILE & VERIFIED RECORD (Right Below Hero) */}
+      <ClientExperiences />
+
+      {/* 3. WHO WE ARE SECTION ("ONE TEAM. EVERY DETAIL.") */}
       <section className="py-24 md:py-36 max-w-[1440px] mx-auto px-6 md:px-12 border-b border-black/10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
           <div className="lg:col-span-4">
             <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3">
-              01 / Studio Ethos
+              02 / Studio Ethos
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight">
               WHO WE ARE
@@ -239,13 +243,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. DESIGN ACROSS EVERY SCALE (Interactive 3-Pillar Switcher) */}
+      {/* 4. DESIGN ACROSS EVERY SCALE (Interactive 3-Pillar Switcher) */}
       <section className="py-24 md:py-36 bg-[#EAE8E3]">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
             <div>
               <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3">
-                02 / Multidisciplinary Practice
+                03 / Multidisciplinary Practice
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
                 DESIGN ACROSS EVERY SCALE.
@@ -342,12 +346,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. SELECTED WORKS / CURATED PORTFOLIO GRID */}
+      {/* 5. SELECTED WORKS / CURATED PORTFOLIO GRID */}
       <section className="py-24 md:py-36 max-w-[1440px] mx-auto px-6 md:px-12">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-8">
           <div>
             <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3">
-              03 / Selected Directions
+              04 / Selected Directions
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight">
               SPACES WITH A POINT OF VIEW.
@@ -423,13 +427,13 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* 5. CRAFT IN MOTION / ATMOSPHERES ENVISIONED (Interactive Cinema Reel Showcase) */}
+      {/* 6. CRAFT IN MOTION / ATMOSPHERES ENVISIONED (Interactive Cinema Reel Showcase) */}
       <section className="py-24 md:py-36 bg-[#141414] text-white border-t border-white/10">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
             <div>
               <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3 font-semibold">
-                04 / Visual Telemetry &amp; Spatial Studies
+                05 / Visual Telemetry &amp; Spatial Studies
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight text-white">
                 ATMOSPHERES ENVISIONED. <br />
@@ -572,13 +576,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. SURFACE MATERIALITY & BRAND ECOSYSTEM (Mill Provenance Manifest) */}
+      {/* 7. SURFACE MATERIALITY & BRAND ECOSYSTEM (Mill Provenance Manifest) */}
       <section className="py-24 md:py-36 bg-[#F6F5F2] border-t border-black/10">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
             <div>
               <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3 font-semibold">
-                05 / Global Sourcing &amp; Mill Provenance
+                06 / Global Sourcing &amp; Mill Provenance
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
                 MATERIALS THAT AGE WELL. <br />
@@ -657,13 +661,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. THE 4-STAGE ARCHITECTURAL PROTOCOL (Calm, Clear, Considered) */}
+      {/* 8. THE 4-STAGE ARCHITECTURAL PROTOCOL (Calm, Clear, Considered) */}
       <section className="py-24 md:py-36 bg-[#EAE8E3] border-t border-black/10">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
             <div>
               <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3 font-semibold">
-                06 / Delivery Sequence
+                07 / Delivery Sequence
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
                 CALM IS DESIGNED IN. <br />
@@ -776,13 +780,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. PROJECTS FROM ABROAD (Overseas Client Oversight Protocol) */}
+      {/* 9. PROJECTS FROM ABROAD (Overseas Client Oversight Protocol) */}
       <section className="py-24 md:py-36 bg-[#111111] text-white border-t border-white/10">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
             <div className="lg:col-span-8 space-y-4">
               <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block font-semibold">
-                07 / Expatriate &amp; Overseas Custodianship
+                08 / Expatriate &amp; Overseas Custodianship
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-white leading-tight">
                 PROJECTS FROM ABROAD. <br />
@@ -850,13 +854,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. FIELD INTELLIGENCE / PUBLICATIONS PREVIEW */}
+      {/* 10. FIELD INTELLIGENCE / PUBLICATIONS PREVIEW */}
       <section className="py-24 md:py-36 bg-[#F6F5F2] border-t border-black/10">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
             <div>
               <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3 font-semibold">
-                08 / Field Intelligence &amp; Municipal Bylaws
+                09 / Field Intelligence &amp; Municipal Bylaws
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
                 USEFUL THINKING. <br />
@@ -912,7 +916,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10. ADVISORY & BYLAWS FAQ (Before We Begin: Planning with Clarity) */}
+      {/* 11. ADVISORY & BYLAWS FAQ (Before We Begin: Planning with Clarity) */}
       <section className="py-24 md:py-36 bg-white border-y border-black/10">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -920,7 +924,7 @@ export default function HomePage() {
               <div className="sticky top-28 space-y-6">
                 <div>
                   <span className="text-xs uppercase tracking-[0.3em] text-[#A8201A] block mb-3 font-semibold">
-                    09 / Advisory &amp; Transparency
+                    10 / Advisory &amp; Transparency
                   </span>
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight mb-3">
                     BEFORE WE BEGIN. <br />

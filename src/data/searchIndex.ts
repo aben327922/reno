@@ -649,5 +649,16 @@ export const SEARCH_INDEX: SearchItem[] = [
     keywords: ['terms of service', 'contract terms', 'drawdown schedule', 'boq policies', 'project agreement'],
     badge: 'Legal',
     metadata: 'Updated 2026'
+  },
+  {
+    id: 'std-09',
+    title: 'Google Business Profile & Verified Client Reviews',
+    category: 'Studio & Policies',
+    subtitle: '5.0 Rating · Verified Reviews · Atelier Directions',
+    snippet: 'View Renov8 on Google Business Profile (5.0 ★). Verified client reviews, photographic site documentation, and official atelier location at Blue Area, Islamabad.',
+    url: 'https://share.google/rxzJz24oNNs7Gnnw8',
+    keywords: ['google', 'google profile', 'reviews', 'ratings', 'client feedback', 'testimonials', 'stars', 'google maps', 'directions', 'client experiences'],
+    badge: 'Public Verification',
+    metadata: '5.0 ★★★★★ · Google Verified'
   }
 ];

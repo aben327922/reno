@@ -317,6 +317,28 @@ const KNOWLEDGE_RESPONSES: Record<string, KnowledgeEntry> = {
       { label: '📊 Model Budget in R8 / Plan', href: '/planner' },
     ],
     waPrompt: 'Hi Renov8, I saw your portfolio and would like to discuss a project inspired by your work.',
+  },
+
+  reviews: {
+    title: 'Google Business Profile & Verified Client Experiences',
+    text: 'Every Renov8 project is built on verified proof. Inspect our live Google Business Profile for authentic client reviews, 5.0 rating, photographic site records, and verified handovers:',
+    card: {
+      image: '/images/hero/renov8-home-hero.webp',
+      badge: '5.0 ★ Google Verified',
+      title: 'Verified Client Experiences & Public Record',
+      metrics: { label: 'Trust Rating', value: '5.0 ★★★★★' },
+      deliverables: [
+        'Documented with care. Published with written client permission.',
+        '100% Verified client experiences across F-7, E-7, DHA & Blue Area.',
+        'Official Google Business Profile with location, ratings, and reviews.',
+        'Formal 12-month defect liability warranty on all handovers.'
+      ]
+    },
+    links: [
+      { label: '⭐ View Renov8 on Google (5.0 ★)', href: 'https://share.google/rxzJz24oNNs7Gnnw8' },
+      { label: '🏛️ Read Verified Client Experiences', href: '/#client-experiences' },
+    ],
+    waPrompt: 'Hi Renov8, I would like to review client references for a past project similar to mine.',
   }
 };
 
@@ -402,6 +424,8 @@ export default function ArchitecturalChatbot() {
         matchedResponse = KNOWLEDGE_RESPONSES.studio;
       } else if (q.includes('project') || q.includes('work') || q.includes('portfolio') || q.includes('courtyard') || q.includes('quiet house')) {
         matchedResponse = KNOWLEDGE_RESPONSES.projects;
+      } else if (q.includes('review') || q.includes('google') || q.includes('rating') || q.includes('experience') || q.includes('testimonial') || q.includes('feedback') || q.includes('star')) {
+        matchedResponse = KNOWLEDGE_RESPONSES.reviews;
       } else if (q.includes('service') || q.includes('trade') || q.includes('what do you do') || q.includes('all')) {
         matchedResponse = KNOWLEDGE_RESPONSES.services;
       } else if (q.includes('cost') || q.includes('price') || q.includes('rate') || q.includes('sqft') || q.includes('budget') || q.includes('marla') || q.includes('kanal') || q.includes('kharcha') || q.includes('planner')) {
@@ -606,6 +630,7 @@ export default function ArchitecturalChatbot() {
             <div className="px-3 sm:px-4 py-2 bg-white/80 border-t border-black/10 flex gap-1.5 overflow-x-auto whitespace-nowrap scrollbar-none">
               {[
                 'Renovation Cost',
+                'Google Reviews (5.0 ★)',
                 'CDA Bylaws',
                 'Kitchen & Bath',
                 'Custom Joinery',
