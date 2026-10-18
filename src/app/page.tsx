@@ -132,20 +132,11 @@ export default function HomePage() {
               className="relative h-full w-full overflow-hidden border border-white/20 bg-black/50 shadow-2xl"
             >
               <video
-                ref={(el) => {
-                  if (el) el.playbackRate = 0.65;
-                }}
                 src="/videos/services/home-reno-remodeling/home-reno-remodeling-1.mp4"
                 autoPlay
                 loop
                 playsInline
                 muted
-                onLoadedMetadata={(e) => {
-                  e.currentTarget.playbackRate = 0.65;
-                }}
-                onPlay={(e) => {
-                  e.currentTarget.playbackRate = 0.65;
-                }}
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -158,20 +149,11 @@ export default function HomePage() {
               className="relative h-full w-full overflow-hidden border border-white/25 bg-black/50 shadow-2xl"
             >
               <video
-                ref={(el) => {
-                  if (el) el.playbackRate = 0.65;
-                }}
                 src="/videos/services/interior-space-planning/interior-space-2.mp4"
                 autoPlay
                 loop
                 playsInline
                 muted
-                onLoadedMetadata={(e) => {
-                  e.currentTarget.playbackRate = 0.65;
-                }}
-                onPlay={(e) => {
-                  e.currentTarget.playbackRate = 0.65;
-                }}
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -184,20 +166,11 @@ export default function HomePage() {
               className="relative h-full w-full overflow-hidden border border-white/20 bg-black/50 shadow-2xl"
             >
               <video
-                ref={(el) => {
-                  if (el) el.playbackRate = 0.65;
-                }}
                 src="/videos/services/cabinet-works/cabinet-joinery-1.mp4"
                 autoPlay
                 loop
                 playsInline
                 muted
-                onLoadedMetadata={(e) => {
-                  e.currentTarget.playbackRate = 0.65;
-                }}
-                onPlay={(e) => {
-                  e.currentTarget.playbackRate = 0.65;
-                }}
                 className="w-full h-full object-cover"
               />
             </motion.div>
