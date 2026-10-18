@@ -107,46 +107,103 @@ export default function HomePage() {
 
   return (
     <main className="bg-[#F6F5F2] text-[#141414] overflow-x-hidden">
-      {/* 1. HERO SECTION (Full-viewport architectural maquette aesthetic with real local hero render) */}
+      {/* 1. HERO SECTION (Full-viewport with smooth photo fade and 3 background video cards) */}
       <section className="relative h-screen min-h-[720px] w-full flex items-end overflow-hidden bg-[#141414]">
-        {/* Architectural Background with Smooth Dissolve */}
+        {/* Layer 1: Initial Architectural Photo that dissolves smoothly */}
         <motion.div
-          initial={{ opacity: 1, scale: 1.05 }}
-          animate={{ opacity: 0.25, scale: 1 }}
-          transition={{ duration: 2.2, delay: 0.6, ease: 'easeInOut' }}
-          className="absolute inset-0 bg-cover bg-center"
+          initial={{ opacity: 1, scale: 1.04 }}
+          animate={{ opacity: 0, scale: 1 }}
+          transition={{ duration: 2.0, delay: 0.8, ease: 'easeInOut' }}
+          className="absolute inset-0 bg-cover bg-center z-0"
           style={{
             backgroundImage: "url('/images/hero/renov8-home-hero.webp')",
             filter: 'sepia(8%) contrast(98%) brightness(82%)',
           }}
         />
-        {/* Softened Black Gradient Overlay - Lighter and More Luminous */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#141414]/75 via-[#141414]/25 to-transparent" />
-        <div className="absolute inset-0 bg-[#141414]/15" />
 
-        <div className="relative z-10 max-w-[1440px] w-full mx-auto px-6 md:px-12 pb-16 md:pb-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+        {/* Layer 2: 3 Architectural Video Cards in the Background (1 down, 1 up, 1 down) */}
+        <div className="absolute inset-0 z-[1] overflow-hidden flex items-center justify-center pointer-events-none p-4 md:p-8 lg:p-12">
+          <div className="w-full h-full max-w-[1560px] mx-auto grid grid-cols-3 gap-3 md:gap-6 lg:gap-8 items-stretch py-6 md:py-10">
+            {/* Background Card 1: Coming DOWN from top */}
+            <motion.div
+              initial={{ y: -160, opacity: 0 }}
+              animate={{ y: 24, opacity: 1 }}
+              transition={{ duration: 1.4, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+              className="relative h-full w-full overflow-hidden border border-white/20 bg-black/50 shadow-2xl"
+            >
+              <video
+                src="/videos/services/home-reno-remodeling/home-reno-remodeling-1.mp4"
+                autoPlay
+                loop
+                playsInline
+                muted
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+
+            {/* Background Card 2: Going UP from bottom */}
+            <motion.div
+              initial={{ y: 160, opacity: 0 }}
+              animate={{ y: -24, opacity: 1 }}
+              transition={{ duration: 1.4, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              className="relative h-full w-full overflow-hidden border border-white/25 bg-black/50 shadow-2xl"
+            >
+              <video
+                src="/videos/services/interior-space-planning/interior-space-2.mp4"
+                autoPlay
+                loop
+                playsInline
+                muted
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+
+            {/* Background Card 3: Coming DOWN from top */}
+            <motion.div
+              initial={{ y: -160, opacity: 0 }}
+              animate={{ y: 24, opacity: 1 }}
+              transition={{ duration: 1.4, delay: 1.4, ease: [0.22, 1, 0.36, 1] }}
+              className="relative h-full w-full overflow-hidden border border-white/20 bg-black/50 shadow-2xl"
+            >
+              <video
+                src="/videos/services/cabinet-works/cabinet-joinery-1.mp4"
+                autoPlay
+                loop
+                playsInline
+                muted
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Layer 3: Softened Dark Overlay (reduced black shade for luminance, while keeping text readable) */}
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#141414]/80 via-[#141414]/30 to-[#141414]/20 pointer-events-none" />
+
+        {/* Layer 4: Foreground Content Sitting in Front of the 3 Background Video Cards */}
+        <div className="relative z-10 max-w-[1440px] w-full mx-auto px-6 md:px-12 pb-20 md:pb-28 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
           <motion.div
             initial={{ opacity: 0, y: 35 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-7 xl:col-span-7"
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-8"
           >
-            <p className="text-xs uppercase tracking-[0.3em] text-white/80 mb-4 flex items-center gap-2">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/90 mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#A8201A]" />
               <span>Islamabad · Pakistan — 14 Specialist Categories</span>
             </p>
 
             <h1 className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight leading-[0.95]">
               WE DON&apos;T JUST RENOVATE. <br />
-              <span className="font-light italic font-serif text-white/90">WE REIMAGINE.</span>
+              <span className="font-light italic font-serif text-white/95">WE REIMAGINE.</span>
             </h1>
 
-            <p className="mt-6 text-white/85 text-base md:text-xl max-w-xl font-light leading-relaxed">
+            <p className="mt-6 text-white/90 text-base md:text-xl max-w-xl font-light leading-relaxed">
               Thoughtful interiors, precise construction and beautiful finishes, brought together by
               one experienced team.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-8">
+            <div className="mt-10 flex flex-wrap items-center gap-8">
               <Link
                 href="/work"
                 className="group inline-flex items-center gap-3 text-white text-sm md:text-base font-medium pb-2 border-b-2 border-white hover:border-[#A8201A] transition-colors"
@@ -156,7 +213,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/planner"
-                className="group inline-flex items-center gap-3 text-white/85 hover:text-white text-sm md:text-base font-medium pb-2 border-b border-white/40 hover:border-[#A8201A] transition-colors"
+                className="group inline-flex items-center gap-3 text-white/90 hover:text-white text-sm md:text-base font-medium pb-2 border-b border-white/40 hover:border-[#A8201A] transition-colors"
               >
                 <span>Launch PKR Cost Planner</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -164,79 +221,25 @@ export default function HomePage() {
             </div>
           </motion.div>
 
-          {/* 3 Staggered Motion Video Feature Cards (1 coming down, 1 going up, 1 coming down) */}
-          <div className="lg:col-span-5 xl:col-span-5 w-full">
-            <div className="grid grid-cols-3 gap-3 md:gap-4 items-center max-w-md mx-auto lg:max-w-none">
-              {/* Card 1: Coming DOWN from top */}
-              <motion.div
-                initial={{ y: -90, opacity: 0 }}
-                animate={{ y: 16, opacity: 1 }}
-                transition={{ duration: 1.1, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
-                className="relative aspect-[9/15] overflow-hidden bg-black/60 border border-white/20 shadow-2xl backdrop-blur-sm group"
-              >
-                <video
-                  src="/videos/services/home-reno-remodeling/home-reno-remodeling-1.mp4"
-                  autoPlay
-                  loop
-                  playsInline
-                  muted
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-2.5 left-2.5 right-2.5">
-                  <span className="text-[8.5px] font-mono uppercase tracking-widest text-white/80 block">
-                    01 · Architecture
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* Card 2: Going UP from bottom */}
-              <motion.div
-                initial={{ y: 90, opacity: 0 }}
-                animate={{ y: -16, opacity: 1 }}
-                transition={{ duration: 1.1, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
-                className="relative aspect-[9/15] overflow-hidden bg-black/60 border border-white/25 shadow-2xl backdrop-blur-sm group"
-              >
-                <video
-                  src="/videos/services/interior-space-planning/interior-space-2.mp4"
-                  autoPlay
-                  loop
-                  playsInline
-                  muted
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-2.5 left-2.5 right-2.5">
-                  <span className="text-[8.5px] font-mono uppercase tracking-widest text-white/80 block">
-                    02 · Interiors
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* Card 3: Coming DOWN from top */}
-              <motion.div
-                initial={{ y: -90, opacity: 0 }}
-                animate={{ y: 16, opacity: 1 }}
-                transition={{ duration: 1.1, delay: 1.5, ease: [0.22, 1, 0.36, 1] }}
-                className="relative aspect-[9/15] overflow-hidden bg-black/60 border border-white/20 shadow-2xl backdrop-blur-sm group"
-              >
-                <video
-                  src="/videos/services/cabinet-works/cabinet-joinery-1.mp4"
-                  autoPlay
-                  loop
-                  playsInline
-                  muted
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-2.5 left-2.5 right-2.5">
-                  <span className="text-[8.5px] font-mono uppercase tracking-widest text-white/80 block">
-                    03 · Millwork
-                  </span>
-                </div>
-              </motion.div>
+          {/* Floating Architectural Material Edit Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.4 }}
+            className="lg:col-span-4 bg-[#141414]/80 backdrop-blur-md border border-white/15 p-6 text-white space-y-4"
+          >
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <span className="text-[10px] uppercase tracking-[0.25em] text-[#A8201A]">
+                Material Edit
+              </span>
+              <span className="font-mono text-xs text-white/60">A—Z Turnkey</span>
             </div>
-          </div>
+            <p className="text-lg font-serif italic tracking-wide text-white">Stone · Oak · Steel</p>
+            <p className="text-xs text-white/70 leading-relaxed">
+              Built around the way you live—combining architectural design thinking and hands-on
+              civil and interior craft under one roof.
+            </p>
+          </motion.div>
         </div>
       </section>
 
