@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, X, PhoneCall } from 'lucide-react';
+import { ArrowUpRight, X, PhoneCall, Search } from 'lucide-react';
+import SearchModal from '@/components/SearchModal';
 
 const NAV_LINKS = [
   { label: 'Home', href: '/', index: '01' },
@@ -18,6 +19,7 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
@@ -31,10 +33,29 @@ export default function Navbar() {
     setIsOpen(false);
   }, [pathname]);
 
+  // Global Keyboard Shortcut: Cmd+K / Ctrl+K or '/'
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsSearchOpen((prev) => !prev);
+      } else if (
+        e.key === '/' &&
+        document.activeElement?.tagName !== 'INPUT' &&
+        document.activeElement?.tagName !== 'TEXTAREA'
+      ) {
+        e.preventDefault();
+        setIsSearchOpen(true);
+      }
+    };
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+  }, []);
+
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           scrolled
             ? 'bg-[#141414]/95 backdrop-blur-md py-4 border-b border-white/10 shadow-2xl'
             : 'bg-[#141414] py-5'
@@ -79,11 +100,24 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Right CTAs + 3x3 Architectural Grid Trigger */}
-          <div className="flex items-center gap-5">
+          {/* Right CTAs + Search Trigger + 3x3 Architectural Grid Trigger */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            {/* Search Trigger Button */}
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              aria-label="Search studio archive (Cmd+K)"
+              className="flex items-center gap-2 text-white/70 hover:text-white px-2.5 sm:px-3 py-1.5 border border-white/15 hover:border-white/40 transition-colors text-xs font-mono group bg-white/[0.03]"
+            >
+              <Search className="w-3.5 h-3.5 text-[#A8201A] group-hover:scale-110 transition-transform" />
+              <span className="hidden md:inline uppercase tracking-widest text-[10px]">Search</span>
+              <kbd className="hidden lg:inline-flex items-center px-1.5 py-0.5 text-[9px] bg-white/10 text-white/50 border border-white/10 rounded">
+                ⌘K
+              </kbd>
+            </button>
+
             <Link
               href="/planner"
-              className="hidden sm:inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white border border-[#A8201A] rounded-full px-5 py-2 hover:bg-[#A8201A] transition-all duration-300"
+              className="hidden sm:inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white border border-[#A8201A] rounded-full px-4 sm:px-5 py-1.5 sm:py-2 hover:bg-[#A8201A] transition-all duration-300"
             >
               <span>PKR Planner</span>
             </Link>
@@ -110,6 +144,9 @@ export default function Navbar() {
         </div>
       </header>
 
+      {/* Global Architectural Search Command Palette */}
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+
       {/* Fullscreen Architectural Curtain Drawer */}
       <AnimatePresence>
         {isOpen && (
@@ -118,11 +155,28 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '-100%' }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-[#141414] text-white pt-28 pb-12 px-6 md:px-16 overflow-y-auto flex flex-col justify-between"
+            className="fixed inset-0 z-30 bg-[#141414] text-white pt-28 pb-12 px-6 md:px-16 overflow-y-auto flex flex-col justify-between"
           >
             <div className="max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 my-auto">
               {/* Directory Navigation Links */}
               <div className="lg:col-span-7 flex flex-col justify-center space-y-3">
+                {/* Search Quick Launcher inside drawer */}
+                <button
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsSearchOpen(true);
+                  }}
+                  className="w-full text-left p-3.5 mb-3 bg-white/5 border border-white/15 hover:border-[#A8201A] text-white/80 hover:text-white flex items-center justify-between text-xs font-mono uppercase tracking-wider transition-colors group"
+                >
+                  <span className="flex items-center gap-3">
+                    <Search className="w-4 h-4 text-[#A8201A] group-hover:scale-110 transition-transform" />
+                    <span>Search Services, Projects, CDA Bylaws &amp; BOQs...</span>
+                  </span>
+                  <kbd className="px-2 py-0.5 bg-white/10 text-white/60 text-[10px] rounded font-mono">
+                    ⌘K
+                  </kbd>
+                </button>
+
                 <p className="text-xs uppercase tracking-[0.3em] text-white/40 mb-2">
                   Navigation Directory
                 </p>
